@@ -1,0 +1,127 @@
+	// Projet CRM - Organisation
+
+	
+	https://github.com/ImNotTheGuy/CRM-groupe-1.git
+	
+	
+	Ce qu'on a:
+
+	- 2 TABLES dans SQL DB: 'CLIENT' & 'COMMANDE'
+	
+	Ce qu'on doit faire:
+	
+	- CRUD 'CLIENT';
+	- CRUD 'COMMANDE';
+	
+	Comment on fait:
+	
+	Back-end:
+	
+		Création des classes [PEER PROGRAMMING]
+		
+			/model/Client.java
+			/model/Commande.java
+		
+		Création des DAO [PEER PROGRAMMING]
+		
+			/dao/DaoFactory.java --> class
+			/dao/DaoException.java --> extends Exception
+			
+			/dao/ClientDao.java --> interface
+			/dao/CommandeDao.java --> interface
+			
+			/dao/ClientDaoImpl.java --> class implements ClientDao
+			/dao/CommandeDaoImpl.java --> class implements CommandeDao
+			
+		Création des contrôles
+		
+			/controls/Controls.java --> class for handling all SQL errors
+			
+			
+			
+		Création des servlets
+			
+			* CLIENTS
+			
+				/servlets/ModifierEtAjouterClient.java [LUDO]
+					==> URL="/modifierEtAjouterClient?id=xx" --> modifier // spécifier id client
+					==> URL="/modifierEtAjouterClient" --> ajouter
+				
+				/servlets/SupprimerClient.java [ANOUAR]
+					==> URL="/supprimerClient?id=xx" --> spécifier id client
+					
+				/servlets/ListerClients.java [VALENTIN]
+					==> URL="/listeClients"
+
+				/servlets/DetailsClient.java [ANOUAR]
+					==> URL="/detailsClient?id=xx" --> spécifier id client
+				
+			* COMMANDES
+
+				/servlets/ModifierEtAjouterCommande.java [LUDO]
+					==> URL="/modifierEtAjouterCommande?id=xx" --> modifier // spécifier id commande
+					==> URL="/modifierEtAjouterCommande" --> ajouter
+				
+				/servlets/SupprimerCommande.java [MARION]
+					==> URL="/supprimerCommande?id=xx" --> spécifier id commande
+					
+				/servlets/ListerCommande.java [THOMAS]
+					==> URL="/listeCommandes"
+
+				/servlets/DetailsCommande.java [MARION]
+					==> URL="/detailsCommande?id=xx" --> spécifier id commande
+					
+		Création .jsp
+		
+			* INDEX ET MENU
+			
+				/index.jsp [VALENTIN]
+				/WEB-INF/menu.jsp [VALENTIN]
+		
+			* CLIENTS
+			
+				/WEB-INF/formClient.jsp [LUDO]
+				/WEB-INF/modifierClient.jsp --> IMPORTE formClient.jsp [LUDO]
+				/WEB-INF/ajouterClient.jsp --> IMPORTE formClient.jsp  [LUDO]
+				/WEB-INF/listeClients.jsp --> [VALENTIN]
+				/WEB-INF/detailsClient.jsp [ANOUAR]
+				
+			* COMMANDES
+				
+				/WEB-INF/formCommande.jsp [LUDO]
+				/WEB-INF/modifierCommande.jsp --> IMPORTE formCommande.jsp [LUDO]
+				/WEB-INF/ajouterCommande.jsp --> IMPORTE formCommande.jsp [LUDO]
+				/WEB-INF/detailsCommande.jsp --> [MARION]
+				/WEB-INF/listeCommandes.jsp --> [THOMAS]
+
+	
+	Organisation des tâches: séparation client et commande
+	
+	PHASE 1: 09H00-10H30
+		
+		TESTER GIT: https://github.com/ImNotTheGuy/CRM-groupe-1.git
+		VALIDER DAO + CLASSES JAVA
+	
+	PHASE 2: 10H30-10H45
+	
+		APÉRO
+	
+	PHASE 3: 10H45-12H15
+	
+		SERVLETS + JSP
+	
+	PHASE 4: 12H15-13H15
+	
+		MANGER (VIN OPTIONNEL)
+	
+	PHASE 5: 13H15-15H30
+	
+		.CSS
+	
+	PHASE 6: 15H30-16H00
+	
+		PRÉPARATION PRÉSENTATION
+	
+	PHASE 7: 16H00-17H00
+	
+		APÉRO
