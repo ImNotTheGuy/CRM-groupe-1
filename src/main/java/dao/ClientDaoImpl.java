@@ -123,9 +123,49 @@ public class ClientDaoImpl implements ClientDao{
 	}
 	
 	@Override
-    void supprimer( long id ) throws DaoException;
+    void supprimer( long id ) throws DaoException{
+		Connection   con=null;
+		try {
+			  con = factory.getConnection();
+			  PreparedStatement pst = con.prepareStatement( SQL_DELETE_BY_ID );
+			  pst.setLong(1, id);
+			  int statut = pst.executeUpdate();
+			  if ( statut == 0 ) {
+				  throw new DaoException("Erreur de suppression Client("+id+")");
+			  }
+		      pst.close();
+	    } catch(SQLException ex) {
+	    	throw new DaoException("Erreur de suppression BDD Client", ex);
+	    } finally {
+	    	factory.releaseConnection(con);
+		}
+	}
     
 	@Override
-    void update( Client client ) throws DaoException;
+    void update( Client client ) throws DaoException{
+		Connection con=null;
+		try {
+			con = factory.getConnection();
+			
+			PreparedStatement pst = con.prepareStatement( SQL_UPDATE );
+			pst.setString( 1, client.getNom() );
+			pst.setString( 2, client.getPrenom() );
+			pst.setString( 3, client.getTelephone() );
+			pst.setString( 4, client.getEmail() );
+			pst.setLong( 5, client.getId() );
+
+			int statut = pst.executeUpdate();
+
+            if ( statut == 0 ) {
+                throw new DaoException( "Echec modification Client" );
+            }
+			pst.close();
+			
+	    } catch(SQLException ex) {
+	    	throw new DaoException("Echec BDD modification Client",ex);
+	    } finally {
+	    	factory.releaseConnection(con);
+		}
+	}
 	
 }
