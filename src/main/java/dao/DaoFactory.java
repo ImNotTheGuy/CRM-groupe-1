@@ -34,12 +34,12 @@ public class DaoFactory {
 	}
 	
 	
-	public AuteurDao getClientDao() {
-		return new AuteurDaoImpl( this );
+	public ClientDao getClientDao() {
+		return new ClientDaoImpl( this );
 	}
 	
-	public LivreDao getCommandeDao() {
-		return new LivreDaoImpl( this );
+	public OrdersDao getOrdersDao() {
+		return new OrdersDaoImpl( this );
 	}
 
 	Connection getConnection() throws SQLException {

@@ -7,8 +7,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.List;
-
 
 import model.Client;
 
@@ -43,7 +41,7 @@ public class ClientDaoImpl implements ClientDao{
 			con = factory.getConnection();
 			
 			PreparedStatement pst = con.prepareStatement( SQL_INSERT, Statement.RETURN_GENERATED_KEYS );
-			pst.setString( 1, client.getfirstName() );
+			pst.setString( 1, client.getFirstName() );
 			pst.setString( 2, client.getEmail() );
 			pst.setString( 3, client.getPhone() );
 			pst.setString( 4, client.getAddress() );
@@ -148,11 +146,13 @@ public class ClientDaoImpl implements ClientDao{
 			con = factory.getConnection();
 			
 			PreparedStatement pst = con.prepareStatement( SQL_UPDATE );
-			pst.setString( 1, client.getNom() );
-			pst.setString( 2, client.getPrenom() );
-			pst.setString( 3, client.getTelephone() );
-			pst.setString( 4, client.getEmail() );
-			pst.setLong( 5, client.getId() );
+			pst.setString( 1, client.getFirstName() );
+			pst.setString( 2, client.getEmail() );
+			pst.setString( 3, client.getPhone() );
+			pst.setString( 4, client.getAddress() );
+			pst.setString( 5, client.getZipCode() );
+			pst.setString( 6, client.getCountry() );
+			pst.setInt( 7, client.getState() );
 
 			int statut = pst.executeUpdate();
 

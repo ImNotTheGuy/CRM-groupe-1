@@ -1,3 +1,5 @@
+package model;
+
 public class Orders{
 
     private int id;
@@ -30,7 +32,7 @@ public class Orders{
 			this.unitPrice = unitPrice;
 			this.state = state;
 			this.totalExcludeTaxe = nbDays * unitPrice;
-			this.totalWithTaxe = nbDays * unitPrice * 1.2;
+			this.totalWithTaxe = nbDays * unitPrice * 1.2f;
 
     }
 
@@ -96,7 +98,7 @@ public class Orders{
 
 
     public float getTotalWithTaxe() {
-        return this.nbDays * this.unitPrice * 1.2;
+        return this.nbDays * this.unitPrice * 1.2f;
     }
 	
 	@Override
