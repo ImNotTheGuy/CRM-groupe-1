@@ -100,7 +100,27 @@ public class ClientDaoImpl implements ClientDao{
 	}
 	
 	@Override
-    List<Client> lister() throws DaoException;
+    List<Client> lister() throws DaoException{
+		
+		List<Client> listeClients = new ArrayList<Client>();
+		Connection   con=null;
+		try {
+			  con = factory.getConnection();
+			  PreparedStatement pst = con.prepareStatement( SQL_SELECT );
+		      ResultSet         rs  = pst.executeQuery();
+		      while ( rs.next() ) {
+		    	  listeClients.add( map(rs) );
+		      }
+		      rs.close();
+		      pst.close();
+	    } catch(SQLException ex) {
+	    	throw new DaoException("Erreur de lecture BDD Client", ex);
+	    } finally {
+	    	factory.releaseConnection(con);
+		}
+		return listeClients;
+	}
+	}
 	
 	@Override
     void supprimer( long id ) throws DaoException;
