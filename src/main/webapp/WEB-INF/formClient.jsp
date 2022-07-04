@@ -9,13 +9,8 @@
 	<c:param name="idClient" value="${client.id}"/>
 			</c:url>">
 
-
-
-
 	<fieldset>
 		<legend>Modifer un Client</legend>
-
-
 
 
 		<label for="nom">Company name</label> <input type="text"

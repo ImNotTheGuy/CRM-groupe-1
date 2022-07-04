@@ -10,6 +10,7 @@
 	<li ><a href="<c:url value="/" />">Acceuil</a></li>
 	<li ><a href="<c:url value="/listeOrders" />">Liste Orders</a></li>
 	<li ><a href="<c:url value="/listeClients" />">Liste Clients</a></li>
+	<li ><a href="<c:url value="/listeOrders" />">Liste Commande</a></li>
 	<li ><a href="<c:url value="/modifierEtAjouterClient" />">Ajouter client</a></li>
 	<li ><a href="<c:url value="/modifierEtAjouterCommande" />">Ajouter commande</a></li>
 	

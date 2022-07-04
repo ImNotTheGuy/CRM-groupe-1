@@ -11,7 +11,7 @@ import dao.DaoException;
 import dao.DaoFactory;
 import model.Client;
 
-@WebServlet("/ModifierEtAjouterClient")
+@WebServlet("/modifierEtAjouterClient")
 public class ModifierEtAjouterClient extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

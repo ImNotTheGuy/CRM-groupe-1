@@ -10,7 +10,7 @@
 <link type="text/css" rel="stylesheet" href="<c:url value="/inc/style.css" />" />
 </head>
 <body>
-	<%-- <c:import url="/WEB-INF/menu.jsp" /> --%>
+	<c:import url="/WEB-INF/menu.jsp" />
 
 	<div >
 		<table>

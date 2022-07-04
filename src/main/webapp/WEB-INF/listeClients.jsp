@@ -31,9 +31,15 @@
 						<td><c:out value="${client.companyName}" /></td>
 						<td><c:out value="${client.firstName}" /></td>
 						<td><c:out value="${client.lastName}" /></td>
-				
+						<td><c:out value="${client.email}" /></td>
+						<td><c:out value="${client.phone}" /></td>
+						<td><c:out value="${client.address}" /></td>
+						<td><c:out value="${client.zipCode}" /></td>
+						<td><c:out value="${client.city}" /></td>
+						<td><c:out value="${client.country}" /></td>
+						<td><c:out value="${client.state}" /></td>
 					
-					<td><a href="<c:url value="/detailsClient" ><c:param name="id" value="${client.id }"/> </c:url>">Détails</a></td>
+					<td><a href="<c:url value="/detailsClient" ><c:param name="id" value="${client.id }"/> </c:url>">Dï¿½tails</a></td>
 					
 					<td><a href="<c:url value="/supprimerClient" ><c:param name="id" value="${client.id }"/> </c:url>">Supprimer</a> </td>
 					
