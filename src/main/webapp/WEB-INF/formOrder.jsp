@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <form method="post"
-	action="<c:url value = "/modifierEtAjouterClient">
+	action="<c:url value = "/modifierEtAjouterOrder">
 	<c:param name="id" value="${orders.id}"/>
 			</c:url>">
 
