@@ -22,13 +22,7 @@
 					<th>companyName</th >
 					<th>firstName</th >
 				    <th>lastName</th >
-		            <th>email</th >
-					<th>phone</th >
-					<th>address</th >
-					<th>zipCode</th >
-					<th>city</th >
-					<th>country</th >
-					<th>state</th >
+		          
 				</tr >  
 			<c:forEach items="${ listeClients }" var="Client" varStatus="boucle">
 
@@ -37,13 +31,7 @@
 						<td><c:out value="${Client.companyName}" /></td>
 						<td><c:out value="${Client.firstName}" /></td>
 						<td><c:out value="${Client.lastName}" /></td>
-						<td><c:out value="${Client.email}" /></td>
-						<td><c:out value="${Client.phone}" /></td>
-						<td><c:out value="${Client.address}" /></td>
-						<td><c:out value="${Client.zipCode}" /></td>
-						<td><c:out value="${Client.city}" /></td>
-						<td><c:out value="${Client.country}" /></td>
-						<td><c:out value="${Client.state}" /></td>
+				
 					
 					<td><a href="<c:url value="/detailsClient" ><c:param name="id" value="${Client.id }"/> </c:url>">Détails</a></td>
 					
