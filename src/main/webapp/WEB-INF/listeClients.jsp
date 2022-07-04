@@ -16,7 +16,9 @@
 <c:choose>
 	
 		<c:when test="${empty listeClients}">
+		<p> Aucun clients  </p>
 		</c:when>
+		<c:otherwise>
 		<table >
 				<tr>
 					<th>companyName</th >
@@ -31,15 +33,8 @@
 						<td><c:out value="${client.companyName}" /></td>
 						<td><c:out value="${client.firstName}" /></td>
 						<td><c:out value="${client.lastName}" /></td>
-						<td><c:out value="${client.email}" /></td>
-						<td><c:out value="${client.phone}" /></td>
-						<td><c:out value="${client.address}" /></td>
-						<td><c:out value="${client.zipCode}" /></td>
-						<td><c:out value="${client.city}" /></td>
-						<td><c:out value="${client.country}" /></td>
-						<td><c:out value="${client.state}" /></td>
 					
-					<td><a href="<c:url value="/detailsClient" ><c:param name="id" value="${client.id }"/> </c:url>">D�tails</a></td>
+					<td><a href="<c:url value="/detailsClient" ><c:param name="id" value="${client.id }"/> </c:url>">Details</a></td>
 					
 					<td><a href="<c:url value="/supprimerClient" ><c:param name="id" value="${client.id }"/> </c:url>">Supprimer</a> </td>
 					
@@ -48,7 +43,7 @@
 					</tr>
 					
 			</c:forEach>
-			</table>	
+			</table>	</c:otherwise>
 </c:choose>
 </div>
 </body>
