@@ -44,7 +44,7 @@
 			</tbody>
 		</table>
 
-		<h2>Liste des orders du client :</h2>
+		<h3>Liste des commandes du client :</h3>
 		<c:choose>
 			<c:when test="${ empty orders }">
 				<p>Aucun ordre trouve...</p>
