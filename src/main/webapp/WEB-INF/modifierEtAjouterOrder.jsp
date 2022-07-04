@@ -11,13 +11,7 @@
 </head>
 <body>
 
-<<<<<<< HEAD
-
-
 <c:import url="/WEB-INF/formOrder.jsp" />
-=======
-<c:import url="/WEB-INF/formClient.jsp" />
->>>>>>> origin/marion
 
 </body>
 </html>
