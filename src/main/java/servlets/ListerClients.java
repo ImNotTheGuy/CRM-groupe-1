@@ -36,3 +36,4 @@ public class ListerClients extends HttpServlet {
 	this.getServletContext().getRequestDispatcher("/WEB-INF/listeClients.jsp").forward(request, response);
 
 }
+}
