@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 
-<title> ${addOrUpdate} un client</title>
+<title>${addOrUpdate} un client</title>
 </head>
 <body>
 

@@ -88,6 +88,7 @@ public class ModifierEtAjouterClient extends HttpServlet {
 				clientToAdd.setCity(city);
 				clientToAdd.setCountry(country);
 				clientToAdd.setState(state);
+				
 				System.out.println("Client à ajouter: " + clientToAdd);
 				clientDao.creer(clientToAdd);
 			} catch (DaoException e) {

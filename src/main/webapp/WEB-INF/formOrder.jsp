@@ -10,7 +10,7 @@
 			</c:url>">
 
 <fieldset>
-<legend>${addOrUpdate} une Commande</legend>
+<legend>${addOrUpdate} une commande</legend>
 
 		<label for="clientId">Client</label>
 <select id="clientId" name="clientId">
@@ -18,25 +18,23 @@
 		<option value="<c:out value="${ client.id }"/>" ${ client.id == orders.client.id ? "selected" : "" }><c:out value="${ client.firstName }"/> <c:out value="${ client.lastName }"/></option>
 	</c:forEach>
 </select>
-
+<br/>
 <br/>
 		<label for="typePresta">Type de Prestation</label> 
 		<input type="text" name="typePresta" id="typePresta" value="<c:out value="${orders.typePresta}"></c:out>"> <br />
 
-		<label for="designation">designation</label> 
+		<label for="designation">Designation</label> 
 		<input type="text" name="designation" id="designation" value="<c:out value="${orders.designation}"></c:out>"> <br />
 
-		<label for="nbDays">Nombre de Jours</label> 
+		<label for="nbDays">Duree (en jour(s))</label> 
 		<input type="text" name="nbDays" id="nbDays" value="<c:out value="${orders.nbDays}"></c:out>"> <br /> 
 		
-		<label for="unitPrice">Prix unitaire</label> 
+		<label for="unitPrice">Prix (par jour)</label> 
 		<input type="text" name="unitPrice" id="unitPrice" value="<c:out value="${orders.unitPrice}"></c:out>"> <br />
 
-		<label for="state">State</label> 
-		<input type="text" name="state" id="state" value="<c:out value="${orders.state}"></c:out>">
+		<label for="state">Statut</label> 
+		<input type="text" name="state" id="state" value="<c:out value="${orders.state}"></c:out>"> <br /> 
 		
-		<input type="submit" value="Valider" /><br /> 
-		<input type="reset" value="Remettre à zéro" />
-		
-</fieldset>		
+</fieldset>
+<input class="bouton" type="submit" value="Valider" /> <input class="bouton" type="reset" value="Remettre à zéro" />		
 </form>

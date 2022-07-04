@@ -9,38 +9,37 @@
 	<c:param name="id" value="${client.id}"/>
 			</c:url>">
 <fieldset>
-<legend>${addOrUpdate} un Client</legend>
+<legend>${addOrUpdate} un client</legend>
 
-		<label for="nom">Company name</label> 
+		<label for="nom">Compagnie</label> 
 		<input type="text" name="companyName" id="companyName" value="<c:out value="${client.companyName}"></c:out>"> <br /> 
 		
-		<label for="firstName">First name</label> 
+		<label for="firstName">Prenom</label> 
 		<input type="text" name="firstName" id="firstName" value="<c:out value="${client.firstName}"></c:out>"> <br /> 
 		
-		<label for="lastName">Last name</label> 
+		<label for="lastName">Nom</label> 
 		<input type="text" name="lastName" id="lastName" value="<c:out value="${client.lastName}"></c:out>"> <br />
 
 		<label for="email">Email</label> 
 		<input type="text" name="email" id="email" value="<c:out value="${client.email}"></c:out>"> <br /> 
 		
-		<label for="phone">Phone</label> 
+		<label for="phone">Telephone</label> 
 		<input type="number" name="phone" id="phone" value="<c:out value="${client.phone}"></c:out>"> <br /> 
 		
-		<label for="address">Address</label> 
+		<label for="address">Adresse</label> 
 		<input type="text" name="address" id="address" value="<c:out value="${client.address}"></c:out>"> <br />
 
-		<label for="zipCode">Zipcode</label> <input type="text" name="zipCode"
+		<label for="zipCode">Code postal</label> <input type="text" name="zipCode"
 			id="zipCode" value="<c:out value="${client.zipCode}"></c:out>"> <br />
 
-		<label for="city">City</label> <input type="text" name="city"
-			id="city" value="<c:out value="${client.city}"></c:out>"> <br /> <label
-			for="country">Country</label> <input type="text" name="country"
-			id="country" value="<c:out value="${client.country}"></c:out>"> <br />
+		<label for="city">Ville</label> 
+		<input type="text" name="city" id="city" value="<c:out value="${client.city}"></c:out>"> <br /> 
+		
+		<label for="country">Pays</label>
+		<input type="text" name="country" id="country" value="<c:out value="${client.country}"></c:out>"> <br />
 
-		<label for="state">State</label> <input type="text" name="state"
-			id="state" value="<c:out value="${client.state}"></c:out>"> <br /> <input
-			
-			type="submit" value="Valider" /><br /> <input type="reset"
-			value="Remettre à zéro" />
+		<label for="state">Statut</label>
+		<input type="text" name="state" id="state" value="<c:out value="${client.state}"></c:out>"> <br />
 </fieldset>
+<input class="bouton" type="submit" value="Valider" /> <input class="bouton" type="reset" value="Remettre à zéro" />	
 </form>
