@@ -11,7 +11,6 @@ import dao.DaoFactory;
 import dao.ClientDao;
 import dao.OrdersDao;
 
-
 @WebServlet("/supprimerClient")
 public class SupprimerClient extends HttpServlet {
 	private static final long serialVersionUID = 1L;

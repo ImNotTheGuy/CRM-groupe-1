@@ -24,8 +24,6 @@ public class ModifierEtAjouterClient extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
 		
 		String modify = request.getParameter("id");
 		
@@ -60,7 +58,6 @@ public class ModifierEtAjouterClient extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		
 		Client clientToModify;
 		try {
@@ -96,7 +93,6 @@ public class ModifierEtAjouterClient extends HttpServlet {
 			System.out.println("modified to: " + clientToModify);
 			
 		} catch (DaoException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (NumberFormatException nfExc) {
 			System.out.println("Invalid id type given");
