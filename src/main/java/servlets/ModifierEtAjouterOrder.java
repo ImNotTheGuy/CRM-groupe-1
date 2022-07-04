@@ -1,5 +1,4 @@
 package servlets;
-
 import java.io.IOException;
 import java.util.List;
 
@@ -9,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import controls.Controls;
 import dao.ClientDao;
 import dao.DaoException;
 import dao.DaoFactory;
@@ -107,17 +107,31 @@ public class ModifierEtAjouterOrder extends HttpServlet {
 		
 		//TODO: Controls
 		
+		Controls controls = new Controls();
+		
 		long clientId = Long.parseLong(request.getParameter("clientId"));
-		System.out.println("id: " + request.getParameter("id"));
-		System.out.println("Client id: " + clientId);
 		Client client;
 
 		String typePresta = request.getParameter("typePresta");
 		String designation = request.getParameter("designation");
+		
+
+		controls.checkRestriction("typePresta", typePresta);
+		controls.checkRestriction("designation", designation);
+		controls.checkRestriction("nbDays", request.getParameter("nbDays"));
+		controls.checkRestriction("unitPrice", request.getParameter("unitPrice"));
+		controls.checkRestriction("orderState", request.getParameter("state"));
+		
+		List<String> errorMessages = controls.getErrorMessages();
+		
+		if (errorMessages.size() > 0) {
+			//TODO: redirect to error page
+			System.out.println(errorMessages.toString());
+		}
+		
 		int nbDays = Integer.parseInt(request.getParameter("nbDays"));
 		float unitPrice = Float.parseFloat(request.getParameter("unitPrice"));
 		int state = Integer.parseInt(request.getParameter("state"));
-		
 		
 		
 		if (request.getParameter("id") == null || request.getParameter("id").equals("")) {
