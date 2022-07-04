@@ -33,7 +33,7 @@
 		<input type="text" name="unitPrice" id="unitPrice" value="<c:out value="${orders.unitPrice}"></c:out>"> <br />
 
 		<label for="state">State</label> 
-		<input type="text" name="state" id="state" value="<c:out value="${orders.state}"></c:out>"> <br /> 
+		<input type="text" name="state" id="state" value="<c:out value="${orders.state}"></c:out>">
 		
 		<input type="submit" value="Valider" /><br /> 
 		<input type="reset" value="Remettre à zéro" />
