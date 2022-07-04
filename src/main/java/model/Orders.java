@@ -81,7 +81,6 @@ public class Orders {
 		this.state = state;
 	}
 	
-	
 	public float getTotalExcludeTaxe() {
 		return totalExcludeTaxe;
 	}
