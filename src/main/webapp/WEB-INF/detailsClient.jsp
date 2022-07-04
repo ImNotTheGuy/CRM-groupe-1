@@ -22,6 +22,10 @@
 					<th>Email</th>
 					<th>Telephone</th>
 					<th>Adresse</th>
+					<th>Zip Code</th >
+					<th>City</th >
+					<th>Country</th >
+					<th>State</th >
 				</tr>
 			</thead>
 			<tbody>
@@ -32,6 +36,10 @@
 					<td><c:out value="${ client.email }" /></td>
 					<td><c:out value="${ client.phone }" /></td>
 					<td><c:out value="${ client.address }" /></td>
+					<td><c:out value="${ client.zipCode }" /></td>
+					<td><c:out value="${ client.city }" /></td>
+					<td><c:out value="${ client.country }" /></td>
+					<td><c:out value="${ client.state }" /></td>
 				</tr>
 			</tbody>
 		</table>
