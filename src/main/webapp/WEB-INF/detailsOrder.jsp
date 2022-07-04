@@ -11,7 +11,7 @@
 
 <c:import url="/WEB-INF/menu.jsp"/>
 
-<h2>Détails concernant la commande :<c:out value="${livre.titre}"/> :</h2>
+<h2>Détails concernant la commande :</h2>
 <ul>
 	<li>Id commande : <c:out value="${orders.id}"/></li>
 	<li>Client : <c:out value="${orders.client.companyName}"/>

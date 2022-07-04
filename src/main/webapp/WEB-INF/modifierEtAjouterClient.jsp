@@ -11,8 +11,6 @@
 </head>
 <body>
 
-
-
 <c:import url="/WEB-INF/formOrder.jsp" />
 
 </body>

@@ -11,8 +11,6 @@
 </head>
 <body>
 
-
-
 <c:import url="/WEB-INF/formClient.jsp" />
 
 </body>

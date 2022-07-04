@@ -6,12 +6,11 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>listeOrders</title>
+<title>Liste des commandes</title>
 </head>
 <body>
-	<c:import url="/WEB-INF/menu.jsp" />
-	<h1>Liste des commandes</h1>
-<a href="<c:url value="/modifierEtAjouterClient" />"><button>Ajouter une commande</button></a>
+<c:import url="/WEB-INF/menu.jsp" />
+<h2>Liste des commandes</h2>
 	<c:choose>
 		<c:when test="${empty Orders}">
 		<p>Aucune commande</p>
@@ -42,5 +41,6 @@
 		</table>
 	</c:otherwise>
 </c:choose>
+<a href="<c:url value="/modifierEtAjouterOrder" />"><button>Ajouter une commande</button></a>
 </body>
 </html>
