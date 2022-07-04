@@ -20,23 +20,15 @@ public class ListeOrders extends HttpServlet {
        
 	private OrdersDao ordersDao;
 	
-<<<<<<< HEAD:src/main/java/servlets/ListerOrders.java
-    public ListerOrders() {
-=======
 	
 	
     public ListeOrders() {
->>>>>>> origin/thomas:src/main/java/servlets/ListeOrders.java
         super();
         ordersDao = DaoFactory.getInstance().getOrdersDao();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-<<<<<<< HEAD:src/main/java/servlets/ListerOrders.java
-		try {
-			request.setAttribute( "listeOrders", ordersDao.lister());
-=======
 		
 		
 		
@@ -45,14 +37,10 @@ public class ListeOrders extends HttpServlet {
 
 			request.setAttribute( "Orders", ordersDao.lister());
 			
->>>>>>> origin/thomas:src/main/java/servlets/ListeOrders.java
 		} catch (DaoException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-<<<<<<< HEAD:src/main/java/servlets/ListerOrders.java
-		this.getServletContext().getRequestDispatcher("/WEB-INF/ListeOrders.jsp").forward(request, response);
-=======
 		
 		
 			
@@ -68,6 +56,5 @@ public class ListeOrders extends HttpServlet {
 		
 		
 		
->>>>>>> origin/thomas:src/main/java/servlets/ListeOrders.java
 	}
 }

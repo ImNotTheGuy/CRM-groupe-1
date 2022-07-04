@@ -57,11 +57,6 @@ public class ModifierEtAjouterClient extends HttpServlet {
 		
 		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/modifierEtAjouterClient.jsp").forward(request, response);
-		
-		
-		
-		
-		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
