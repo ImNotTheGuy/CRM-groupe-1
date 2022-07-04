@@ -222,6 +222,9 @@ public class OrdersDaoImpl implements OrdersDao {
 		a.setDesignation(resultSet.getString("designation"));
 		a.setUnitPrice(resultSet.getFloat("unitprice"));
 		a.setDesignation(resultSet.getString("designation"));
+		a.setNbDays(resultSet.getInt("nbdays"));
+		a.setTotalExcludeTaxe(resultSet.getFloat("totalexcludetaxe"));
+		a.setTotalWithTaxe(resultSet.getFloat("totalwithtaxe"));
 
 		return a;
 	}

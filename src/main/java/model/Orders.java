@@ -87,12 +87,21 @@ public class Orders {
 		this.state = state;
 	}
 	
+	
 	public float getTotalExcludeTaxe() {
 		return totalExcludeTaxe;
+	}
+	
+	public void setTotalExcludeTaxe(float totalExcludeTaxe) {
+		this.totalExcludeTaxe = totalExcludeTaxe;
 	}
 
 	public float getTotalWithTaxe() {
 		return totalWithTaxe;
+	}
+	
+	public void setTotalWithTaxe(float totalWithTaxe) {
+		this.totalWithTaxe = totalWithTaxe;
 	}
 
 	@Override
