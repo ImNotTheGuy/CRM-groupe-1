@@ -19,7 +19,8 @@ public class ModifierEtAjouterClient extends HttpServlet {
 
     public ModifierEtAjouterClient() {
         super();
-        clientDao = DaoFactory.getInstance().getClientDao();
+
+		clientDao = DaoFactory.getInstance().getClientDao();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -43,7 +44,6 @@ public class ModifierEtAjouterClient extends HttpServlet {
 			return;
 		}
 			
-		clientDao = DaoFactory.getInstance().getClientDao();
 		
 		try {
 			Client client = clientDao.trouver(id);
@@ -62,7 +62,6 @@ public class ModifierEtAjouterClient extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		clientDao = DaoFactory.getInstance().getClientDao();
 		Client clientToModify;
 		try {
 			int clientId = Integer.parseInt(request.getParameter("id"));
@@ -80,6 +79,8 @@ public class ModifierEtAjouterClient extends HttpServlet {
 			int state = Integer.parseInt(request.getParameter("state"));
 			
 			clientToModify = clientDao.trouver(clientId);
+			
+			System.out.println("found client: " + clientToModify);
 
 			clientToModify.setCompanyName(companyName);
 			clientToModify.setFirstName(firstName);
@@ -91,18 +92,14 @@ public class ModifierEtAjouterClient extends HttpServlet {
 			clientToModify.setCountry(country);
 			clientToModify.setState(state);
 			
+
+			System.out.println("modified to: " + clientToModify);
+			
 		} catch (DaoException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (NumberFormatException nfExc) {
 			System.out.println("Invalid id type given");
 		}
-		
-		
-		
-		
-		
-		
-		doGet(request, response);
 	}
 }
