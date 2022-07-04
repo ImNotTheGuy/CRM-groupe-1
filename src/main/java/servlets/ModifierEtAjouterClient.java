@@ -23,8 +23,6 @@ public class ModifierEtAjouterClient extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
 		
 		String modify = request.getParameter("id");
 		
@@ -42,8 +40,6 @@ public class ModifierEtAjouterClient extends HttpServlet {
 			this.getServletContext().getRequestDispatcher("/WEB-INF/modifierEtAjouterClient.jsp").forward(request, response);
 			return;
 		}
-			
-		clientDao = DaoFactory.getInstance().getClientDao();
 		
 		try {
 			Client client = clientDao.trouver(id);
@@ -54,20 +50,11 @@ public class ModifierEtAjouterClient extends HttpServlet {
 			System.out.println("Error retrieving id" + id);
 			e.printStackTrace();
 		}
-		
-		
-		this.getServletContext().getRequestDispatcher("/WEB-INF/modifierEtAjouterClient.jsp").forward(request, response);
-		
-		
-		
-		
-		
+		this.getServletContext().getRequestDispatcher("/WEB-INF/modifierEtAjouterClient.jsp").forward(request, response);	
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		
-		clientDao = DaoFactory.getInstance().getClientDao();
 		Client clientToModify;
 		try {
 			int clientId = Integer.parseInt(request.getParameter("id"));
@@ -97,17 +84,10 @@ public class ModifierEtAjouterClient extends HttpServlet {
 			clientToModify.setState(state);
 			
 		} catch (DaoException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (NumberFormatException nfExc) {
 			System.out.println("Invalid id type given");
 		}
-		
-		
-		
-		
-		
-		
 		doGet(request, response);
 	}
 }

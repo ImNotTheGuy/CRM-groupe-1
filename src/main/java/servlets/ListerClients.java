@@ -16,15 +16,16 @@ import model.Client;
 public class ListerClients extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-       
+	private ClientDao clientDao;
+	
+	public ListerClients() {
+        super();
+        clientDao = DaoFactory.getInstance().getClientDao();
+    }   
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-	
-	// Lister les clients 
-
-	ClientDao clientDao = DaoFactory.getInstance().getClientDao();
 	List <Client> listeClients = null;
-	
 	
 	try {
 		listeClients = clientDao.lister();
@@ -34,6 +35,5 @@ public class ListerClients extends HttpServlet {
 	request.setAttribute("listeClients", listeClients);
 	
 	this.getServletContext().getRequestDispatcher("/WEB-INF/listeClients.jsp").forward(request, response);
-
-}
+	}
 }
