@@ -10,7 +10,7 @@ public interface OrdersDao {
 
 	Orders       trouver( long id ) throws DaoException;
 	
-	List<Orders> 		 trouverByClientId (long idClient) throws DaoException;
+	List<Orders> trouverByClientId (long idClient) throws DaoException;
 	
     List<Orders> lister() throws DaoException;
 
@@ -19,6 +19,5 @@ public interface OrdersDao {
     void         supprimerByClientId( long idClient ) throws DaoException;
     
     void         update( Orders order ) throws DaoException;
-   
-
+  
 }

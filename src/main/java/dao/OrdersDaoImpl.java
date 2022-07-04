@@ -7,8 +7,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
-import model.Client;
 import model.Orders;
 
 public class OrdersDaoImpl implements OrdersDao {
@@ -113,12 +111,10 @@ public class OrdersDaoImpl implements OrdersDao {
 			factory.releaseConnection(con);
 		}
 		return listOrders;
-
 	}
 
 	@Override
 	public List<Orders> lister() throws DaoException {
-
 		
 		Connection con = null;
 		List<Orders> listOrders = new ArrayList<>();
@@ -138,7 +134,6 @@ public class OrdersDaoImpl implements OrdersDao {
 			factory.releaseConnection(con);
 		}
 		return listOrders;
-
 	}
 
 	@Override
@@ -207,7 +202,6 @@ public class OrdersDaoImpl implements OrdersDao {
 		}
 	}
 	
-	
 	private static Orders map(ResultSet resultSet) throws SQLException {
 		
 		Orders a = new Orders();
@@ -228,5 +222,4 @@ public class OrdersDaoImpl implements OrdersDao {
 
 		return a;
 	}
-
 }

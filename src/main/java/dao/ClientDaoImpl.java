@@ -163,11 +163,6 @@ public class ClientDaoImpl implements ClientDao {
 		}
 	}
 
-	/*
-	 * Mapping (correspondance) entre un ResultSet et un JavaBean Méthode utilitaire
-	 * (interne)
-	 */
-
 	private static Client map(ResultSet resultSet) throws SQLException {
 		Client a = new Client();
 		a.setId(resultSet.getLong("id"));
@@ -184,5 +179,4 @@ public class ClientDaoImpl implements ClientDao {
 
 		return a;
 	}
-
 }

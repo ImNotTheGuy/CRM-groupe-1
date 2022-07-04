@@ -1,8 +1,8 @@
 package model;
 
 public class Client {
-    private long id;
-
+    
+	private long id;
     private String companyName;
     private String firstName;
     private String lastName;
@@ -11,55 +11,14 @@ public class Client {
     private String address;
     private String zipCode;
     private String city;
-
-
 	private String country;
     private int state;
 
     public Client() {
     }
 
-    public Client(
-            long id,
-            String companyName,
-            String firstName,
-            String lastName,
-            String email,
-            String phone,
-            String address,
-            String zipCode,
-            String city,
-            String country
-    ) {
-
-        this.id = id;
-        this.companyName = companyName;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.phone = phone;
-        this.address = address;
-        this.zipCode = zipCode;
-        this.country = country;
-        this.city = city;
-        this.state = 0;
-
-    }
-
-    public Client(
-    		long id,
-            String companyName,
-            String firstName,
-            String lastName,
-            String email,
-            String phone,
-            String address,
-            String zipCode,
-            String city,
-            String country,
-            int state
-    ) {
-
+    public Client(long id, String companyName, String firstName, String lastName,
+    String email, String phone, String address, String zipCode, String city, String country) {
     	this.id = id;
         this.companyName = companyName;
         this.firstName = firstName;
@@ -70,8 +29,22 @@ public class Client {
         this.zipCode = zipCode;
         this.country = country;
         this.city = city;
-        this.state = state;
+        this.state = 0;
+    }
 
+    public Client(long id, String companyName, String firstName, String lastName, String email,
+    String phone, String address, String zipCode, String city, String country, int state) {
+    	this.id = id;
+    	this.companyName = companyName;
+    	this.firstName = firstName;
+    	this.lastName = lastName;
+    	this.email = email;
+    	this.phone = phone;
+    	this.address = address;
+    	this.zipCode = zipCode;
+    	this.country = country;
+    	this.city = city;
+    	this.state = state;
     }
 
     public long getId() {
@@ -145,13 +118,11 @@ public class Client {
     public void setState(int state) {
         this.state = state;
     }
-    
 
     public String getCompanyName() {
 		return companyName;
 	}
-    
-
+   
 	public void setCompanyName(String companyName) {
 		this.companyName = companyName;
 	}
@@ -166,9 +137,9 @@ public class Client {
 
 	@Override
 	public String toString() {
-		return "Client [id=" + id + ", companyName=" + companyName + ", firstName=" + firstName + ", lastName="
-				+ lastName + ", email=" + email + ", phone=" + phone + ", address=" + address + ", zipCode=" + zipCode
-				+ ", city=" + city + ", country=" + country + ", state=" + state + "]";
+		return "Client [id=" + id + ", companyName=" + companyName + ", firstName=" + firstName
+				+", lastName=" + lastName + ", email=" + email + ", phone=" + phone
+				+ ", address=" + address + ", zipCode=" + zipCode + ", city=" + city
+				+ ", country=" + country + ", state=" + state + "]";
 	}
-
 }

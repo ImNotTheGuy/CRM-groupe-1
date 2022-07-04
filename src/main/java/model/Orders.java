@@ -9,26 +9,20 @@ public class Orders {
 	private int nbDays;
 	private float unitPrice;
 	private int state;
-	private float totalExcludeTaxe; // no setters because automatically computed
-	private float totalWithTaxe; // no setters because automatically computed
-
-	
+	private float totalExcludeTaxe;
+	private float totalWithTaxe;
 
 	public Orders() {
-
 	}
 
-	public Orders(Client client, String typePresta, String designation, int nbDays, float unitPrice, int state) {
-
+	public Orders(Client client, String typePresta, String designation, int nbDays, 
+	float unitPrice, int state, float totalExcludeTaxe, float totalWithTaxe) {
 		this.client = client;
 		this.typePresta = typePresta;
 		this.designation = designation;
 		this.nbDays = nbDays;
 		this.unitPrice = unitPrice;
 		this.state = state;
-		this.totalExcludeTaxe = nbDays * unitPrice;
-		this.totalWithTaxe = nbDays * unitPrice * 1.2f;
-
 	}
 
 	public long getId() {
@@ -106,9 +100,9 @@ public class Orders {
 
 	@Override
 	public String toString() {
-		return "Orders{" + "id=" + id + ", clientId=" + client + ", typePresta='" + typePresta + '\''
-				+ ", designation='" + designation + '\'' + ", nbDays=" + nbDays + ", unitPrice=" + unitPrice
-				+ ", state=" + state + ", totalExcludeTaxe=" + totalExcludeTaxe + ", totalWithTaxe=" + totalWithTaxe
-				+ '}';
+		return "Orders{" + "id=" + id + ", clientId=" + client + ", typePresta='" + typePresta 
+				+ '\'' + ", designation='" + designation + '\'' + ", nbDays=" + nbDays 
+				+ ", unitPrice=" + unitPrice + ", state=" + state + ", totalExcludeTaxe=" 
+				+ totalExcludeTaxe + ", totalWithTaxe=" + totalWithTaxe + '}';
 	}
 }
