@@ -39,7 +39,7 @@
 		<h2>Liste des orders du client :</h2>
 		<c:choose>
 			<c:when test="${ empty orders }">
-				<p>Aucun livre trouvé...</p>
+				<p>Aucun ordre trouve...</p>
 			</c:when>
 			<c:otherwise>
 				<table>
