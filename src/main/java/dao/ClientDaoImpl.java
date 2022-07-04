@@ -12,7 +12,7 @@ import model.Client;
 
 public class ClientDaoImpl implements ClientDao {
 
-	private static final String SQL_INSERT = "INSERT INTO client(companyname, firstname,lastname,email,phone,address, zipCode, city, country, state) VALUES(?,?,?,?,?,?,?,?,?,?)";
+	private static final String SQL_INSERT = "INSERT INTO client(companyname, firstname,lastname,email,phone,address, zipcode, city, country, state) VALUES(?,?,?,?,?,?,?,?,?,?)";
 	private static final String SQL_SELECT = "SELECT * FROM client ORDER BY id";
 	private static final String SQL_SELECT_BY_ID = "SELECT * FROM client WHERE id = ?";
 	private static final String SQL_DELETE_BY_ID = "DELETE FROM client WHERE id = ? ";
@@ -172,7 +172,7 @@ public class ClientDaoImpl implements ClientDao {
 		a.setEmail(resultSet.getString("email"));
 		a.setPhone(resultSet.getString("phone"));
 		a.setAddress(resultSet.getString("address"));
-		a.setAddress(resultSet.getString("zipCode"));
+		a.setZipCode(resultSet.getString("zipcode"));
 		a.setCity(resultSet.getString("city"));
 		a.setCountry(resultSet.getString("country"));
 		a.setState(resultSet.getInt("state"));
