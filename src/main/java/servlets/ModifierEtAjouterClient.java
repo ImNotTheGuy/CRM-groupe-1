@@ -1,9 +1,6 @@
 package servlets;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,21 +8,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.ClientDao;
-import dao.DaoException;
 import dao.DaoFactory;
-import model.Client;
 
 /**
- * Servlet implementation class test
+ * Servlet implementation class ModifierEtAjouterClient
  */
-@WebServlet("/test")
-public class test extends HttpServlet {
+@WebServlet("/ModifierEtAjouterClient")
+public class ModifierEtAjouterClient extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
+	private ClientDao clientDao;
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public test() {
+    public ModifierEtAjouterClient() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,22 +32,16 @@ public class test extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-		
-		ClientDao clientDao = DaoFactory.getInstance().getClientDao();
-		
-		List<Client> listClients = new ArrayList<>();
-		
-		try {
-			listClients = clientDao.lister();
-
-			System.out.println(listClients);
-		} catch (DaoException daoEx) {
-			System.out.println("Error listing clients: " + daoEx);
-		}
+		clientDao = DaoFactory.getInstance().getClientDao();
 		
 		
-
-		this.getServletContext().getRequestDispatcher("WEB-INF/formClient.jsp").forward(request, response);
+		
+		this.getServletContext().getRequestDispatcher("/WEB-INF/formClient.jsp").forward(request, response);
+		
+		
+		
+		
+		
 	}
 
 	/**
