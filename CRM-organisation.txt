@@ -6,12 +6,12 @@
 	
 	Ce qu'on a:
 
-	- 2 TABLES dans SQL DB: 'CLIENT' & 'COMMANDE'
+	- 2 TABLES dans SQL DB: 'CLIENT' & 'ORDERS'
 	
 	Ce qu'on doit faire:
 	
 	- CRUD 'CLIENT';
-	- CRUD 'COMMANDE';
+	- CRUD 'ORDERS';
 	
 	Comment on fait:
 	
@@ -20,7 +20,7 @@
 		Création des classes [PEER PROGRAMMING]
 		
 			/model/Client.java
-			/model/Commande.java
+			/model/Order.java
 		
 		Création des DAO [PEER PROGRAMMING]
 		
@@ -28,10 +28,10 @@
 			/dao/DaoException.java --> extends Exception
 			
 			/dao/ClientDao.java --> interface
-			/dao/CommandeDao.java --> interface
+			/dao/OrderDao.java --> interface
 			
 			/dao/ClientDaoImpl.java --> class implements ClientDao
-			/dao/CommandeDaoImpl.java --> class implements CommandeDao
+			/dao/OrderDaoImpl.java --> class implements OrderDao
 			
 		Création des contrôles
 		
@@ -58,18 +58,18 @@
 				
 			* COMMANDES
 
-				/servlets/ModifierEtAjouterCommande.java [LUDO]
-					==> URL="/modifierEtAjouterCommande?id=xx" --> modifier // spécifier id commande
-					==> URL="/modifierEtAjouterCommande" --> ajouter
+				/servlets/ModifierEtAjouterOrder.java [LUDO]
+					==> URL="/modifierEtAjouterOrder?id=xx" --> modifier // spécifier id order
+					==> URL="/modifierEtAjouterOrder" --> ajouter
 				
-				/servlets/SupprimerCommande.java [MARION]
-					==> URL="/supprimerCommande?id=xx" --> spécifier id commande
+				/servlets/SupprimerOrder.java [MARION]
+					==> URL="/supprimerOrder?id=xx" --> spécifier id order
 					
-				/servlets/ListerCommande.java [THOMAS]
-					==> URL="/listeCommandes"
+				/servlets/ListerOrder.java [THOMAS]
+					==> URL="/listeOrders"
 
-				/servlets/DetailsCommande.java [MARION]
-					==> URL="/detailsCommande?id=xx" --> spécifier id commande
+				/servlets/DetailsOrder.java [MARION]
+					==> URL="/detailsOrder?id=xx" --> spécifier id order
 					
 		Création .jsp
 		
@@ -88,14 +88,14 @@
 				
 			* COMMANDES
 				
-				/WEB-INF/formCommande.jsp [LUDO]
-				/WEB-INF/modifierCommande.jsp --> IMPORTE formCommande.jsp [LUDO]
-				/WEB-INF/ajouterCommande.jsp --> IMPORTE formCommande.jsp [LUDO]
-				/WEB-INF/detailsCommande.jsp --> [MARION]
-				/WEB-INF/listeCommandes.jsp --> [THOMAS]
+				/WEB-INF/formOrder.jsp [LUDO]
+				/WEB-INF/modifierOrder.jsp --> IMPORTE formOrder.jsp [LUDO]
+				/WEB-INF/ajouterOrder.jsp --> IMPORTE formOrder.jsp [LUDO]
+				/WEB-INF/detailsOrder.jsp --> [MARION]
+				/WEB-INF/listeOrders.jsp --> [THOMAS]
 
 	
-	Organisation des tâches: séparation client et commande
+	Organisation des tâches: séparation client et order
 	
 	PHASE 1: 09H00-10H30
 		
