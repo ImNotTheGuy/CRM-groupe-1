@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Details Client</title>
-<link type="text/css" rel="stylesheet" href="<c:url value="/inc/style.css" />" />
+<link type="text/css" rel="stylesheet" href="<c:url value="inc/style.css" />" />
 </head>
 <body>
 	<c:import url="/WEB-INF/menu.jsp" />
@@ -16,16 +16,16 @@
 		<table>
 			<thead>
 				<tr>
-					<th>Company Name</th>
-					<th>First Name</th>
-					<th>Last Name</th>
+					<th>Compagnie</th>
+					<th>Prenom</th>
+					<th>Nom</th>
 					<th>Email</th>
 					<th>Telephone</th>
 					<th>Adresse</th>
 					<th>Zip Code</th >
-					<th>City</th >
-					<th>Country</th >
-					<th>State</th >
+					<th>Ville</th >
+					<th>Pays</th >
+					<th>Etat</th >
 				</tr>
 			</thead>
 			<tbody>
@@ -44,7 +44,7 @@
 			</tbody>
 		</table>
 
-		<h3>Liste des commandes du client :</h3>
+		<h3>Commandes du client :</h3>
 		<c:choose>
 			<c:when test="${ empty orders }">
 				<p>Aucun ordre trouve...</p>
@@ -53,12 +53,12 @@
 				<table>
 					<thead>
 						<tr>
-							<th>Type Presta</th>
+							<th>Type de prestation</th>
 							<th>Designation</th>
-							<th>Number Days</th>
-							<th>Unite Price</th>
-							<th>Total Exclude Taxe</th>
-							<th>Total With Taxe</th>
+							<th>Durée (en jour(s))</th>
+							<th>Prix (par jour)</th>
+							<th>Prix hors taxe</th>
+							<th>Prix TTC</th>
 						</tr>
 					</thead>
 					<tbody>

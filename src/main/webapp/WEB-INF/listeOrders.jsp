@@ -6,6 +6,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="inc/style.css">
 <title>Liste des commandes</title>
 </head>
 <body>
@@ -31,8 +32,11 @@
 						<td><c:out value="${ orders.id }" /></td>
 						<td><c:out value="${ orders.typePresta }" /></td>
 						<td><c:out value="${ orders.designation }" /></td>
-						<td><a href="<c:url value="/detailsOrder"><c:param name="id" value="${ orders.id }" /></c:url>">Voir</a>
-							<a href="<c:url value="/modifierEtAjouterOrder"><c:param name="id" value="${ orders.id }" /></c:url>">Modifier</a>
+						<td>
+							<a href="<c:url value="/detailsOrder"><c:param name="id" value="${ orders.id }" /></c:url>">Voir</a>
+							&ensp;
+							<a href="<c:url value="/modifierEtAjouterClient"><c:param name="id" value="${ orders.id }" /></c:url>">Modifier</a>
+							&ensp;
 							<a href="<c:url value="/supprimerOrder"><c:param name="id" value="${ orders.id }" /></c:url>">Supprimer</a>
 						</td>
 					</tr>
@@ -41,6 +45,7 @@
 		</table>
 	</c:otherwise>
 </c:choose>
-<a href="<c:url value="/modifierEtAjouterOrder" />"><button>Ajouter une commande</button></a>
+<br/>
+<a href="<c:url value="/modifierEtAjouterOrder" />"><button class="bouton">Ajouter une commande</button></a>
 </body>
 </html>

@@ -3,13 +3,14 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<h1>${orders.id}</h1>
+<link rel="stylesheet" type="text/css" href="inc/style.css">
 <form method="post"
 	action="<c:url value = "/modifierEtAjouterOrder">
 	<c:param name="id" value="${orders.id}"/>
 			</c:url>">
-	<fieldset>
-		<legend>${addOrUpdate} une Commande</legend>
+
+<fieldset>
+<legend>${addOrUpdate} une Commande</legend>
 
 		<label for="clientId">Client</label>
 <select id="clientId" name="clientId">

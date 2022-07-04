@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="inc/style.css">
 <title>Details commande</title>
 </head>
 <body>
