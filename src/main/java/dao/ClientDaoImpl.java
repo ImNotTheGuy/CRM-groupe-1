@@ -12,11 +12,11 @@ import model.Client;
 
 public class ClientDaoImpl implements ClientDao {
 
-	private static final String SQL_INSERT = "INSERT INTO client(companyName, firstName,lastName,email,phone,address, zipCode, city, country, state) VALUES(?,?,?,?,?,?,?,?,?,?)";
+	private static final String SQL_INSERT = "INSERT INTO client(companyname, firstname,lastname,email,phone,address, zipCode, city, country, state) VALUES(?,?,?,?,?,?,?,?,?,?)";
 	private static final String SQL_SELECT = "SELECT * FROM client ORDER BY id";
 	private static final String SQL_SELECT_BY_ID = "SELECT * FROM client WHERE id = ?";
 	private static final String SQL_DELETE_BY_ID = "DELETE FROM client WHERE id = ? ";
-	private static final String SQL_UPDATE = "UPDATE client SET firstName=?, lastName=?, email=?, phone=?, address=?, zipCode=?, country=?, state=?";
+	private static final String SQL_UPDATE = "UPDATE client SET companyname=?,firstname=?, lastname=?, email=?, phone=?, address=?, zipCode=?, city=?, country=?, state=?";
 
 	private DaoFactory factory;
 
@@ -140,7 +140,7 @@ public class ClientDaoImpl implements ClientDao {
 
 			pst.setString(1, client.getCompanyName());
 			pst.setString(2, client.getFirstName());
-			pst.setString(3, client.getCompanyName());
+			pst.setString(3, client.getLastName());
 			pst.setString(4, client.getEmail());
 			pst.setString(5, client.getPhone());
 			pst.setString(6, client.getAddress());
@@ -171,9 +171,9 @@ public class ClientDaoImpl implements ClientDao {
 	private static Client map(ResultSet resultSet) throws SQLException {
 		Client a = new Client();
 		a.setId(resultSet.getLong("id"));
-		a.setCompanyName(resultSet.getString("companyName"));
-		a.setFirstName(resultSet.getString("firstName"));
-		a.setLastName(resultSet.getString("lastName"));
+		a.setCompanyName(resultSet.getString("companyname"));
+		a.setFirstName(resultSet.getString("firstname"));
+		a.setLastName(resultSet.getString("lastname"));
 		a.setEmail(resultSet.getString("email"));
 		a.setPhone(resultSet.getString("phone"));
 		a.setAddress(resultSet.getString("address"));

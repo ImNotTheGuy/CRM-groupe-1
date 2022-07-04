@@ -11,21 +11,7 @@ public class Client {
     private String address;
     private String zipCode;
     private String city;
-    public String getCompanyName() {
-		return companyName;
-	}
 
-	public void setCompanyName(String companyName) {
-		this.companyName = companyName;
-	}
-
-	public String getCity() {
-		return city;
-	}
-
-	public void setCity(String city) {
-		this.city = city;
-	}
 
 	private String country;
     private int state;
@@ -61,18 +47,21 @@ public class Client {
     }
 
     public Client(
-            long id,
+    		long id,
+            String companyName,
             String firstName,
             String lastName,
             String email,
             String phone,
             String address,
             String zipCode,
+            String city,
             String country,
             int state
     ) {
 
-        this.id = id;
+    	this.id = id;
+        this.companyName = companyName;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -80,6 +69,7 @@ public class Client {
         this.address = address;
         this.zipCode = zipCode;
         this.country = country;
+        this.city = city;
         this.state = state;
 
     }
@@ -155,6 +145,24 @@ public class Client {
     public void setState(int state) {
         this.state = state;
     }
+    
+
+    public String getCompanyName() {
+		return companyName;
+	}
+    
+
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
 
 	@Override
 	public String toString() {
