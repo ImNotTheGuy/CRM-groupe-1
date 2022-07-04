@@ -6,10 +6,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+
 import dao.DaoException;
 import dao.DaoFactory;
 import dao.ClientDao;
 import dao.OrdersDao;
+
 
 @WebServlet("/detailsClient")
 public class DetailsClient extends HttpServlet {
@@ -20,6 +23,7 @@ public class DetailsClient extends HttpServlet {
     
     public DetailsClient() {
         super();
+        
         clientDao = DaoFactory.getInstance().getClientDao();
         ordersDao = DaoFactory.getInstance().getOrdersDao();
     }
@@ -28,7 +32,7 @@ public class DetailsClient extends HttpServlet {
 		long id = Long.parseLong(request.getParameter("id"));
 		
 		try {
-			request.setAttribute("clients", clientDao.trouver(id));
+			request.setAttribute("client", clientDao.trouver(id));
 			request.setAttribute("orders", ordersDao.trouverByClientId(id));
 		} catch (DaoException e) {
 			e.printStackTrace();

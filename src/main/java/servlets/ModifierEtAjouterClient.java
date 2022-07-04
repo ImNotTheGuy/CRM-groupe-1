@@ -44,7 +44,6 @@ public class ModifierEtAjouterClient extends HttpServlet {
 			return;
 		}
 			
-		
 		try {
 			Client client = clientDao.trouver(id);
 			System.out.println(client);
@@ -55,8 +54,6 @@ public class ModifierEtAjouterClient extends HttpServlet {
 			System.out.println("Error retrieving id" + id);
 			e.printStackTrace();
 		}
-		
-		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/modifierEtAjouterClient.jsp").forward(request, response);
 	}
 
@@ -64,7 +61,6 @@ public class ModifierEtAjouterClient extends HttpServlet {
 		
 		//TODO: Controls
 		
-		Client clientToModify = new Client();
 		
 		String companyName = request.getParameter("companyName");
 		String firstName = request.getParameter("firstName");
@@ -77,27 +73,49 @@ public class ModifierEtAjouterClient extends HttpServlet {
 		String country = request.getParameter("country");
 		int state = Integer.parseInt(request.getParameter("state"));
 		
-		clientToModify.setCompanyName(companyName);
-		clientToModify.setFirstName(firstName);
-		clientToModify.setLastName(lastName);
-		clientToModify.setEmail(email);
-		clientToModify.setPhone(phone);
-		clientToModify.setZipCode(zipCode);
-		clientToModify.setCity(city);
-		clientToModify.setCountry(country);
-		clientToModify.setState(state);
 		
 		
 		if (request.getParameter("id") == null) {
 			try {
-				clientDao.creer(clientToModify);
+
+				Client clientToAdd = new Client();
+
+				clientToAdd.setCompanyName(companyName);
+				clientToAdd.setFirstName(firstName);
+				clientToAdd.setLastName(lastName);
+				clientToAdd.setEmail(email);
+				clientToAdd.setPhone(phone);
+				clientToAdd.setAddress(address);
+				clientToAdd.setZipCode(zipCode);
+				clientToAdd.setCity(city);
+				clientToAdd.setCountry(country);
+				clientToAdd.setState(state);
+				System.out.println("Client à ajouter: " + clientToAdd);
+				clientDao.creer(clientToAdd);
 			} catch (DaoException e) {
-				// TODO Auto-generated catch block
+				
 				e.printStackTrace();
 			}
 		} else {
+			
 			try {
+				long clientId = Long.parseLong(request.getParameter("id"));
+				Client clientToModify = clientDao.trouver(clientId);
+
+				System.out.println("Client à modifier: " + clientToModify);
+				clientToModify.setCompanyName(companyName);
+				clientToModify.setFirstName(firstName);
+				clientToModify.setLastName(lastName);
+				clientToModify.setEmail(email);
+				clientToModify.setPhone(phone);
+				clientToModify.setAddress(address);
+				clientToModify.setZipCode(zipCode);
+				clientToModify.setCity(city);
+				clientToModify.setCountry(country);
+				clientToModify.setState(state);
 				
+				System.out.println("Client aveec modif: " + clientToModify);
+
 				clientDao.update(clientToModify);
 			} catch (DaoException e) {
 				// TODO Auto-generated catch block
@@ -105,23 +123,5 @@ public class ModifierEtAjouterClient extends HttpServlet {
 			}
 		}
 		
-		try {
-			int clientId = Integer.parseInt(request.getParameter("id"));
-			
-			
-			
-			clientToModify = clientDao.trouver(clientId);
-			
-			System.out.println("found client: " + clientToModify);
-
-			
-
-			System.out.println("modified to: " + clientToModify);
-			
-		} catch (DaoException e) {
-			e.printStackTrace();
-		} catch (NumberFormatException nfExc) {
-			System.out.println("Invalid id type given");
-		}
 	}
 }

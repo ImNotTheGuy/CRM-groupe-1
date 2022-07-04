@@ -34,7 +34,7 @@ public class ClientDaoImpl implements ClientDao {
 
 			pst.setString(1, client.getCompanyName());
 			pst.setString(2, client.getFirstName());
-			pst.setString(3, client.getFirstName());
+			pst.setString(3, client.getLastName());
 			pst.setString(4, client.getEmail());
 			pst.setString(5, client.getPhone());
 			pst.setString(6, client.getAddress());
