@@ -2,13 +2,32 @@ package model;
 
 public class Client {
     private long id;
+
+    private String companyName;
     private String firstName;
     private String lastName;
     private String email;
     private String phone;
     private String address;
     private String zipCode;
-    private String country;
+    private String city;
+    public String getCompanyName() {
+		return companyName;
+	}
+
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	private String country;
     private int state;
 
     public Client() {
@@ -133,18 +152,11 @@ public class Client {
         this.state = state;
     }
 
-    @Override
-    public String toString() {
-        return "Client{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
-                ", address='" + address + '\'' +
-                ", zipCode='" + zipCode + '\'' +
-                ", country='" + country + '\'' +
-                ", state=" + state +
-                '}';
-    }
+	@Override
+	public String toString() {
+		return "Client [id=" + id + ", companyName=" + companyName + ", firstName=" + firstName + ", lastName="
+				+ lastName + ", email=" + email + ", phone=" + phone + ", address=" + address + ", zipCode=" + zipCode
+				+ ", city=" + city + ", country=" + country + ", state=" + state + "]";
+	}
+
 }

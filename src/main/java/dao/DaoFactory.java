@@ -12,6 +12,8 @@ public class DaoFactory {
 	 private Connection con = null;
 	
 	 private static DaoFactory instanceSingleton = null;
+	 
+	 
  
 	 // Constructeur priv� (usage limit� � la classe elle m�me : Cf. "getInstance()")
 	 private DaoFactory(String url, String username, String passwd) {
@@ -25,7 +27,7 @@ public class DaoFactory {
 		if ( DaoFactory.instanceSingleton == null ) {
 			try {
 			      Class.forName("org.postgresql.Driver");
-			      DaoFactory.instanceSingleton = new DaoFactory("jdbc:postgresql://localhost/biblio","postgres","12345");
+			      DaoFactory.instanceSingleton = new DaoFactory("jdbc:postgresql://localhost/CRM","postgres","12345");
 			} catch(ClassNotFoundException e) {
 				e.printStackTrace();
 			}
