@@ -22,34 +22,22 @@
 					<th>companyName</th >
 					<th>firstName</th >
 				    <th>lastName</th >
-		            <th>email</th >
-					<th>phone</th >
-					<th>address</th >
-					<th>zipCode</th >
-					<th>city</th >
-					<th>country</th >
-					<th>state</th >
+		          
 				</tr >  
-			<c:forEach items="${ listeClients }" var="Client" varStatus="boucle">
+			<c:forEach items="${ listeClients }" var="client" varStatus="boucle">
 
 					<tr>
 
-						<td><c:out value="${Client.companyName}" /></td>
-						<td><c:out value="${Client.firstName}" /></td>
-						<td><c:out value="${Client.lastName}" /></td>
-						<td><c:out value="${Client.email}" /></td>
-						<td><c:out value="${Client.phone}" /></td>
-						<td><c:out value="${Client.address}" /></td>
-						<td><c:out value="${Client.zipCode}" /></td>
-						<td><c:out value="${Client.city}" /></td>
-						<td><c:out value="${Client.country}" /></td>
-						<td><c:out value="${Client.state}" /></td>
+						<td><c:out value="${client.companyName}" /></td>
+						<td><c:out value="${client.firstName}" /></td>
+						<td><c:out value="${client.lastName}" /></td>
+				
 					
-					<td><a href="<c:url value="/detailsClient" ><c:param name="id" value="${Client.id }"/> </c:url>">Détails</a></td>
+					<td><a href="<c:url value="/detailsClient" ><c:param name="id" value="${client.id }"/> </c:url>">Détails</a></td>
 					
-					<td><a href="<c:url value="/supprimerClient" ><c:param name="id" value="${Client.id }"/> </c:url>">Supprimer</a> </td>
+					<td><a href="<c:url value="/supprimerClient" ><c:param name="id" value="${client.id }"/> </c:url>">Supprimer</a> </td>
 					
-					<td><a href="<c:url value="/modifierEtAjouterClient" ><c:param name="id" value="${Client.id }"/> </c:url>">Modifier</a></td>
+					<td><a href="<c:url value="/modifierEtAjouterClient" ><c:param name="id" value="${client.id }"/> </c:url>">Modifier</a></td>
 															
 					</tr>
 					

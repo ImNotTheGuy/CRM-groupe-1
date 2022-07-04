@@ -13,12 +13,16 @@ public class DaoFactory {
 	
 	 private static DaoFactory instanceSingleton = null;
 	 
+	 
+ 
+	 // Constructeur priv� (usage limit� � la classe elle m�me : Cf. "getInstance()")
 	 private DaoFactory(String url, String username, String passwd) {
 		this.url = url;
 		this.username = username;
 		this.passwd = passwd;
 	}
 	
+	 
 	public static DaoFactory getInstance() {
 		if ( DaoFactory.instanceSingleton == null ) {
 			try {
@@ -30,6 +34,7 @@ public class DaoFactory {
 		}
 		return DaoFactory.instanceSingleton;
 	}
+	
 	
 	public ClientDao getClientDao() {
 		return new ClientDaoImpl( this );
@@ -46,6 +51,8 @@ public class DaoFactory {
 		return this.con;
 	}
 	
+	// cette m�thode prend une connection en parametre en pr�sagent que l'on pourrait en utiliser plusieurs
+	// mais par construction actuellement la seule connection existante est stock�e dans "this.con"
 	void releaseConnection( Connection connectionRendue ) {
 		if (this.con==null) {
 			return;
@@ -59,4 +66,5 @@ public class DaoFactory {
 			this.con = null;
 		}
 	}
+
 }

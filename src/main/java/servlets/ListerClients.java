@@ -20,13 +20,15 @@ import model.Client;
 @WebServlet("/listeClients")
 public class ListerClients extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
        
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 	
 	// Lister les clients 
 
 	ClientDao clientDao = DaoFactory.getInstance().getClientDao();
-	List <Client> listeClients = null ;
+	List <Client> listeClients = null;
 	
 	
 	try {
