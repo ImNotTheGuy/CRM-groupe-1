@@ -27,7 +27,7 @@ public class DaoFactory {
 		if ( DaoFactory.instanceSingleton == null ) {
 			try {
 			      Class.forName("org.postgresql.Driver");
-			      DaoFactory.instanceSingleton = new DaoFactory("jdbc:postgresql://localhost/CRM","postgres","12345");
+			      DaoFactory.instanceSingleton = new DaoFactory("jdbc:postgresql://localhost/CRM","postgres","thclpial69");
 			} catch(ClassNotFoundException e) {
 				e.printStackTrace();
 			}
