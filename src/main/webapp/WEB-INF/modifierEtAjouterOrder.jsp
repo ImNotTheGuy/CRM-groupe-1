@@ -13,7 +13,7 @@
 
 
 
-<c:import url="/WEB-INF/formOrder.jsp" />
+<c:import url="/WEB-INF/formClient.jsp" />
 
 </body>
 </html>
