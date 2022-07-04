@@ -73,9 +73,7 @@ public class ModifierEtAjouterClient extends HttpServlet {
 		String country = request.getParameter("country");
 		int state = Integer.parseInt(request.getParameter("state"));
 		
-		
-		
-		if (request.getParameter("id") == null) {
+		if (request.getParameter("id") == null || request.getParameter("id").isEmpty()) {
 			try {
 
 				Client clientToAdd = new Client();
@@ -99,6 +97,7 @@ public class ModifierEtAjouterClient extends HttpServlet {
 		} else {
 			
 			try {
+				System.out.println("Line 102: " + request.getParameter("id"));
 				long clientId = Long.parseLong(request.getParameter("id"));
 				Client clientToModify = clientDao.trouver(clientId);
 
