@@ -65,7 +65,7 @@
 				/servlets/SupprimerOrder.java [MARION]
 					==> URL="/supprimerOrder?id=xx" --> spécifier id order
 					
-				/servlets/ListerOrder.java [THOMAS]
+				/servlets/ListerOrders.java [THOMAS]
 					==> URL="/listeOrders"
 
 				/servlets/DetailsOrder.java [MARION]
