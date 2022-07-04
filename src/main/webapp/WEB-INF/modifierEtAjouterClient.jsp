@@ -8,13 +8,11 @@
 <head>
 <meta charset="UTF-8">
 
-
 <title> ${addOrUpdate} un client</title>
 </head>
 <body>
 
 <c:import url="/WEB-INF/formClient.jsp" />
-
 
 </body>
 </html>

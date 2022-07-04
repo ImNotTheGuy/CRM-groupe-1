@@ -9,9 +9,7 @@
 			</c:url>">
 
 	<fieldset>
-		<legend>Modifer une Commande</legend>
-
-
+		<legend>${addOrUpdate} une Commande</legend>
 
 		<label for="clientId">Client</label>
 <select id="clientId" name="clientId">
@@ -21,32 +19,23 @@
 </select>
 
 <br/>
+		<label for="typePresta">Type de Prestation</label> 
+		<input type="text" name="typePresta" id="typePresta" value="<c:out value="${orders.typePresta}"></c:out>"> <br />
 
- 
-			<label
-			for="typePresta">Type de Prestation</label> 
-			<input type="text" name="typePresta" id="typePresta" value="<c:out value="${orders.typePresta}"></c:out>"> <br />
+		<label for="designation">designation</label> 
+		<input type="text" name="designation" id="designation" value="<c:out value="${orders.designation}"></c:out>"> <br />
 
-
-
-		<label for="designation">designation</label> <input type="text" name="designation"
-			id="designation" value="<c:out value="${orders.designation}"></c:out>"> <br />
-
-
-		<label for="nbDays">Nombre de Jours</label> <input type="text" name="nbDays"
-			id="nbDays" value="<c:out value="${orders.nbDays}"></c:out>"> <br /> <label
-			for="unitPrice">Prix unitaire</label> <input type="text" name="unitPrice"
-			id="unitPrice" value="<c:out value="${orders.unitPrice}"></c:out>"> <br />
-
-		<label for="state">State</label> <input type="text" name="state"
-			id="state" value="<c:out value="${orders.state}"></c:out>"> <br /> <input
-			type="submit" value="Valider" /><br /> <input type="reset"
-			value="Remettre à zéro" />
-			
+		<label for="nbDays">Nombre de Jours</label> 
+		<input type="text" name="nbDays" id="nbDays" value="<c:out value="${orders.nbDays}"></c:out>"> <br /> 
 		
-		<input type="submit" value="Valider"/><br/>
-		<input type="reset" value="Remettre à zéro"/>
+		<label for="unitPrice">Prix unitaire</label> 
+		<input type="text" name="unitPrice" id="unitPrice" value="<c:out value="${orders.unitPrice}"></c:out>"> <br />
+
+		<label for="state">State</label> 
+		<input type="text" name="state" id="state" value="<c:out value="${orders.state}"></c:out>"> <br /> 
+		
+		<input type="submit" value="Valider" /><br /> 
+		<input type="reset" value="Remettre à zéro" />
 		
 </fieldset>		
 </form>
-

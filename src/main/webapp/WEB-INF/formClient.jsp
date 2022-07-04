@@ -50,9 +50,6 @@
 			type="submit" value="Valider" /><br /> <input type="reset"
 			value="Remettre à zéro" />
 			
-		
-		<input type="submit" value="Valider"/><br/>
-		<input type="reset" value="Remettre à zéro"/>
 </form>
 
 </fieldset>
