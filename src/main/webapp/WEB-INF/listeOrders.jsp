@@ -29,9 +29,13 @@
 <a href="<c:url value="/ajouterOrder" />"><button>Ajouter une commande</button></a>
 
 	<c:choose>
-		<c:when test="${empty orders }"></c:when>
+		<c:when test="${empty Orders }">
 		<p>Aucune commande</p>
-	</c:choose>
+		
+		</c:when>
+		
+		
+	
 
 	<c:otherwise>
 
@@ -54,7 +58,7 @@
 			<tbody>
 
 
-				<c:forEach items="${ Orders }" var="livre">
+				<c:forEach items="${ Orders }" var="orders">
 
 					<tr>
 
@@ -67,8 +71,7 @@
 						<td><c:out value="${ orders.unitPrice }" /></td>
 						<td><c:out value="${ orders.state }" /></td>
 						<td><c:out value="${ orders.totalExcludeTaxe }" /></td>
-						<td><c:out value="${ orders.totalWhithTaxe }" /></td>
-
+						<td><c:out value="${ orders.totalWithTaxe }" /></td>
 
 						<td><a
 							href="<c:url value="/detailsOrder"><c:param name="id" value="${ orders.id }" /></c:url>">Voir</a>
@@ -88,7 +91,7 @@
 
 
 	</c:otherwise>
-
+</c:choose>
 </body>
 
 </html>

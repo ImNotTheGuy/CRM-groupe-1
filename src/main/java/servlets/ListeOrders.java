@@ -18,7 +18,7 @@ import model.Orders;
  * Servlet implementation class ListerOrders
  */
 @WebServlet("/listeOrders")
-public class ListerOrders extends HttpServlet {
+public class ListeOrders extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 
@@ -27,7 +27,7 @@ public class ListerOrders extends HttpServlet {
 	
 	
 	
-    public ListerOrders() {
+    public ListeOrders() {
         super();
         ordersDao = DaoFactory.getInstance().getOrdersDao();
 
@@ -41,10 +41,11 @@ public class ListerOrders extends HttpServlet {
 		
 		
 		
+		
+		
 		try {
 
-			
-			request.setAttribute( "listeOrders", ordersDao.lister());
+			request.setAttribute( "Orders", ordersDao.lister());
 			
 		} catch (DaoException e) {
 			// TODO Auto-generated catch block
@@ -54,7 +55,7 @@ public class ListerOrders extends HttpServlet {
 		
 			
 		
-		this.getServletContext().getRequestDispatcher("/WEB-INF/ListeOrders.jsp").forward(request, response);
+		this.getServletContext().getRequestDispatcher("/WEB-INF/listeOrders.jsp").forward(request, response);
 		
 		
 		
