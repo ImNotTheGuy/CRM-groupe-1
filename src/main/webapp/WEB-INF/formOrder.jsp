@@ -9,7 +9,7 @@
 	<c:param name="id" value="${orders.id}"/>
 			</c:url>">
 
-<fieldset>
+<fieldset>	
 <legend>${addOrUpdate} une commande</legend>
 
 		<label for="clientId">Client</label>
