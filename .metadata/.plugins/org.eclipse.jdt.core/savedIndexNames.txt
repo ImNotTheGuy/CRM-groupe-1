@@ -1,0 +1,1 @@
+INDEX VERSION 1.131+C:\Users\Administrateur\Documents\Formation Marion\eclipse-workspace\CRM-groupe-1\.metadata\.plugins\org.eclipse.jdt.core
