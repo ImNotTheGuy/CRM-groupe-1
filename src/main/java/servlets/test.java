@@ -43,15 +43,23 @@ public class test extends HttpServlet {
 		
 		try {
 			listClients = clientDao.lister();
+<<<<<<< HEAD
 
 			System.out.println(listClients);
+=======
+			
+>>>>>>> c1ab364299cfd34d80743714f378e0ae18f17796
 		} catch (DaoException daoEx) {
 			System.out.println("Error listing clients: " + daoEx);
 		}
 		
 		
 
+<<<<<<< HEAD
 		this.getServletContext().getRequestDispatcher("WEB-INF/formClient.jsp").forward(request, response);
+=======
+		this.getServletContext().getRequestDispatcher("/WEB-INF/detailsClient.jsp").forward(request, response);
+>>>>>>> c1ab364299cfd34d80743714f378e0ae18f17796
 	}
 
 	/**
