@@ -11,11 +11,11 @@
 </head>
 <body>
 <c:import url="/WEB-INF/menu.jsp" />
-<h2>Liste des clients</h2>
+<h2 class="titre">Liste des clients</h2>
 <div>
 <c:choose>
 		<c:when test="${empty listeClients}">
-		<p> Aucun clients  </p>
+		<p> Aucun client </p>
 		</c:when>
 		<c:otherwise>
 		<table >
