@@ -6,6 +6,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="inc/style.css">
 <title>Liste des clients</title>
 </head>
 <body>
@@ -18,25 +19,35 @@
 		</c:when>
 		<c:otherwise>
 		<table >
+			<thead>
 				<tr>
-					<th>companyName</th >
-					<th>firstName</th >
-				    <th>lastName</th >
-				</tr >  
-			<c:forEach items="${ listeClients }" var="client" varStatus="boucle">
-					<tr>
-						<td><c:out value="${client.companyName}" /></td>
-						<td><c:out value="${client.firstName}" /></td>
-						<td><c:out value="${client.lastName}" /></td>
-					<td><a href="<c:url value="/detailsClient" ><c:param name="id" value="${client.id }"/> </c:url>">Details</a></td>
-					<td><a href="<c:url value="/supprimerClient" ><c:param name="id" value="${client.id }"/> </c:url>">Supprimer</a> </td>
-					<td><a href="<c:url value="/modifierEtAjouterClient" ><c:param name="id" value="${client.id }"/> </c:url>">Modifier</a></td>									
-					</tr>
-			</c:forEach>
-			</table>	
-			</c:otherwise>
+					<th>Compagnie</th >
+					<th>Prenom</th >
+				    <th>Nom</th >
+				    <th>Action</th >
+				</tr > 
+			</thead>
+			<tbody> 
+			<c:forEach items="${ listeClients }" var="client" varStatus="boucle">	
+				<tr>
+					<td><c:out value="${client.companyName}" /></td>
+					<td><c:out value="${client.firstName}" /></td>
+					<td><c:out value="${client.lastName}" /></td>	
+					<td>
+						<a href="<c:url value="/detailsClient" ><c:param name="id" value="${client.id }"/> </c:url>">Voir</a>
+						&ensp;
+						<a href="<c:url value="/modifierEtAjouterClient" ><c:param name="id" value="${client.id }"/> </c:url>">Modifier</a>	
+						&ensp;							
+						<a href="<c:url value="/supprimerClient" ><c:param name="id" value="${client.id }"/> </c:url>">Supprimer</a>
+					</td>
+				</tr>	
+		</c:forEach>
+		</tbody>
+		</table>	
+		</c:otherwise>
 </c:choose>
 </div>
-<a href="<c:url value="/modifierEtAjouterClient" />"><button>Ajouter un client</button></a>
+<br/>
+<a href="<c:url value="/modifierEtAjouterClient" />"><button class="bouton">Ajouter un client</button></a>
 </body>
 </html>

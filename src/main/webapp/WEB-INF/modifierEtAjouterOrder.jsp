@@ -4,10 +4,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+<link rel="stylesheet" type="text/css" href="inc/style.css">
 <head>
 <meta charset="UTF-8">
-<title>Title</title>
+
+<title>${addOrUpdate} une commande</title>
 </head>
 <body>
 
