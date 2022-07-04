@@ -5,51 +5,48 @@
 
 <form method="post"
 	action="<c:url value = "/modifierEtAjouterClient">
-	<c:param name="id" value="${client.id}"/>
+	<c:param name="id" value="${orders.id}"/>
 			</c:url>">
 
 	<fieldset>
-		<legend>Modifer un Client</legend>
-
-
-		<label for="nom">Company name</label> <input type="text"
-			name="companyName" id="companyName"
-			value="<c:out value="${client.companyName}"></c:out>"> <br /> <label
-			for="firstName">First name</label> <input type="text"
-			name="firstName" id="firstName"
-			value="<c:out value="${client.firstName}"></c:out>"> <br /> <label
-			for="lastName">Last name</label> <input type="text" name="lastName"
-			id="lastName" value="<c:out value="${client.lastName}"></c:out>"> <br />
+		<legend>Modifer une Commande</legend>
 
 
 
-		<label for="email">Email</label> <input type="text" name="email"
-			id="email" value="<c:out value="${client.email}"></c:out>"> <br /> <label
-			for="phone">Phone</label> <input type="number" name="phone"
-			id="phone" value="<c:out value="${client.phone}"></c:out>"> <br /> 
+		<label for="clientId">Client</label>
+<select id="clientId" name="clientId">
+	<c:forEach items="${ client }" var="client">
+		<option value="<c:out value="${ client.id }"/>" ${ client.id == orders.client.id ? "selected" : "" }><c:out value="${ client.firstName }"/> <c:out value="${ client.lastName }"/></option>
+	</c:forEach>
+</select>
+
+<br/>
+
+ 
 			<label
-			for="address">Address</label> 
-			<input type="text" name="address" id="address" value="<c:out value="${client.address}"></c:out>"> <br />
+			for="typePresta">Type de Prestation</label> 
+			<input type="text" name="typePresta" id="typePresta" value="<c:out value="${orders.typePresta}"></c:out>"> <br />
 
 
 
-		<label for="zipcode">Zipcode</label> <input type="text" name="zipcode"
-			id="zipcode" value="<c:out value="${client.zipCode}"></c:out>"> <br />
+		<label for="designation">designation</label> <input type="text" name="designation"
+			id="designation" value="<c:out value="${orders.designation}"></c:out>"> <br />
 
 
-		<label for="city">City</label> <input type="text" name="city"
-			id="city" value="<c:out value="${client.city}"></c:out>"> <br /> <label
-			for="country">Country</label> <input type="text" name="country"
-			id="country" value="<c:out value="${client.country}"></c:out>"> <br />
+		<label for="nbDays">Nombre de Jours</label> <input type="text" name="nbDays"
+			id="nbDays" value="<c:out value="${orders.nbDays}"></c:out>"> <br /> <label
+			for="unitPrice">Prix unitaire</label> <input type="text" name="unitPrice"
+			id="unitPrice" value="<c:out value="${orders.unitPrice}"></c:out>"> <br />
 
 		<label for="state">State</label> <input type="text" name="state"
-			id="state" value="<c:out value="${client.state}"></c:out>"> <br /> <input
+			id="state" value="<c:out value="${orders.state}"></c:out>"> <br /> <input
 			type="submit" value="Valider" /><br /> <input type="reset"
 			value="Remettre à zéro" />
 			
 		
 		<input type="submit" value="Valider"/><br/>
 		<input type="reset" value="Remettre à zéro"/>
+		
+</fieldset>		
 </form>
 
-</fieldset>
