@@ -122,6 +122,7 @@ public class ModifierEtAjouterClient extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		
+
+		response.sendRedirect(request.getContextPath() + "/listeClients");
 	}
 }

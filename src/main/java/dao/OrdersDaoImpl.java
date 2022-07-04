@@ -188,6 +188,8 @@ public class OrdersDaoImpl implements OrdersDao {
 			pst.setInt(4, order.getNbDays());
 			pst.setFloat(5, order.getUnitPrice());
 			pst.setInt(6, order.getState());
+			pst.setLong(7, order.getId());
+			
 			int statut = pst.executeUpdate();
 
 			if (statut == 0) {

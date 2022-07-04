@@ -7,8 +7,7 @@
 <fieldset>
 <form method="post"
 	action="<c:url value = "/modifierEtAjouterClient">
-	<c:if test="${addOrUpdate} == 'Modifier'">
-	<c:param name="id" value="${client.id}"/></c:if>
+	<c:param name="id" value="${client.id}"/>
 			</c:url>">
 
 	<fieldset>

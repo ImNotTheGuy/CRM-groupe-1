@@ -32,7 +32,7 @@
 						<td><c:out value="${ orders.typePresta }" /></td>
 						<td><c:out value="${ orders.designation }" /></td>
 						<td><a href="<c:url value="/detailsOrder"><c:param name="id" value="${ orders.id }" /></c:url>">Voir</a>
-							<a href="<c:url value="/modifierEtAjouterClient"><c:param name="id" value="${ orders.id }" /></c:url>">Modifier</a>
+							<a href="<c:url value="/modifierEtAjouterOrder"><c:param name="id" value="${ orders.id }" /></c:url>">Modifier</a>
 							<a href="<c:url value="/supprimerOrder"><c:param name="id" value="${ orders.id }" /></c:url>">Supprimer</a>
 						</td>
 					</tr>

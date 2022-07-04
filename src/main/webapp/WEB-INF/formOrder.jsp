@@ -3,17 +3,17 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
+<h1>${orders.id}</h1>
 <form method="post"
 	action="<c:url value = "/modifierEtAjouterOrder">
 	<c:param name="id" value="${orders.id}"/>
 			</c:url>">
-
 	<fieldset>
 		<legend>${addOrUpdate} une Commande</legend>
 
 		<label for="clientId">Client</label>
 <select id="clientId" name="clientId">
-	<c:forEach items="${ client }" var="client">
+	<c:forEach items="${ listeClients }" var="client">
 		<option value="<c:out value="${ client.id }"/>" ${ client.id == orders.client.id ? "selected" : "" }><c:out value="${ client.firstName }"/> <c:out value="${ client.lastName }"/></option>
 	</c:forEach>
 </select>
