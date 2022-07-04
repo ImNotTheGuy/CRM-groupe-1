@@ -29,6 +29,7 @@ public class ModifierEtAjouterClient extends HttpServlet {
 		
 		if (modify == null) {
 			System.out.println("No id was given, sending to add Client form.");
+			request.setAttribute("addOrUpdate", "Ajouter");
 			this.getServletContext().getRequestDispatcher("/WEB-INF/modifierEtAjouterClient.jsp").forward(request, response);
 			return;
 		}
@@ -38,6 +39,7 @@ public class ModifierEtAjouterClient extends HttpServlet {
 			id = Long.parseLong(modify);
 		} catch (NumberFormatException nfExc) {
 			System.out.println("Input value is not a number, sending to add Client form: " + nfExc);
+			request.setAttribute("addOrUpdate", "Ajouter");
 			this.getServletContext().getRequestDispatcher("/WEB-INF/modifierEtAjouterClient.jsp").forward(request, response);
 			return;
 		}
@@ -47,6 +49,7 @@ public class ModifierEtAjouterClient extends HttpServlet {
 			Client client = clientDao.trouver(id);
 			System.out.println(client);
 			request.setAttribute("client", client);
+			request.setAttribute("addOrUpdate", "Modifier");
 			
 		} catch (DaoException e) {
 			System.out.println("Error retrieving id" + id);
@@ -59,35 +62,58 @@ public class ModifierEtAjouterClient extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		Client clientToModify;
+		//TODO: Controls
+		
+		Client clientToModify = new Client();
+		
+		String companyName = request.getParameter("companyName");
+		String firstName = request.getParameter("firstName");
+		String lastName = request.getParameter("lastName");
+		String email = request.getParameter("email");
+		String phone = request.getParameter("phone");
+		String address = request.getParameter("address");
+		String zipCode = request.getParameter("zipCode");
+		String city = request.getParameter("city");
+		String country = request.getParameter("country");
+		int state = Integer.parseInt(request.getParameter("state"));
+		
+		clientToModify.setCompanyName(companyName);
+		clientToModify.setFirstName(firstName);
+		clientToModify.setLastName(lastName);
+		clientToModify.setEmail(email);
+		clientToModify.setPhone(phone);
+		clientToModify.setZipCode(zipCode);
+		clientToModify.setCity(city);
+		clientToModify.setCountry(country);
+		clientToModify.setState(state);
+		
+		
+		if (request.getParameter("id") == null) {
+			try {
+				clientDao.creer(clientToModify);
+			} catch (DaoException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else {
+			try {
+				
+				clientDao.update(clientToModify);
+			} catch (DaoException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
 		try {
 			int clientId = Integer.parseInt(request.getParameter("id"));
-
-			String companyName = request.getParameter("companyName");
-			String firstName = request.getParameter("firstName");
-			String lastName = request.getParameter("lastName");
-			String email = request.getParameter("email");
-			String phone = request.getParameter("phone");
-			String address = request.getParameter("address");
-			String zipCode = request.getParameter("zipCode");
-			String city = request.getParameter("city");
-			String country = request.getParameter("country");
-
-			int state = Integer.parseInt(request.getParameter("state"));
+			
+			
 			
 			clientToModify = clientDao.trouver(clientId);
 			
 			System.out.println("found client: " + clientToModify);
 
-			clientToModify.setCompanyName(companyName);
-			clientToModify.setFirstName(firstName);
-			clientToModify.setLastName(lastName);
-			clientToModify.setEmail(email);
-			clientToModify.setPhone(phone);
-			clientToModify.setZipCode(zipCode);
-			clientToModify.setCity(city);
-			clientToModify.setCountry(country);
-			clientToModify.setState(state);
 			
 
 			System.out.println("modified to: " + clientToModify);

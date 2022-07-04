@@ -5,11 +5,12 @@
 
 <form method="post"
 	action="<c:url value = "/modifierEtAjouterClient">
-	<c:param name="id" value="${client.id}"/>
+	<c:if test="${addOrUpdate} == 'Modifier'">
+	<c:param name="id" value="${client.id}"/></c:if>
 			</c:url>">
 
 	<fieldset>
-		<legend>Modifer un Client</legend>
+		<legend>${addOrUpdate} un Client</legend>
 
 
 		<label for="nom">Company name</label> <input type="text"
@@ -33,8 +34,8 @@
 
 
 
-		<label for="zipcode">Zipcode</label> <input type="text" name="zipcode"
-			id="zipcode" value="<c:out value="${client.zipCode}"></c:out>"> <br />
+		<label for="zipCode">Zipcode</label> <input type="text" name="zipCode"
+			id="zipCode" value="<c:out value="${client.zipCode}"></c:out>"> <br />
 
 
 		<label for="city">City</label> <input type="text" name="city"

@@ -18,7 +18,7 @@ public class OrdersDaoImpl implements OrdersDao {
 	private static final String SQL_DELETE_BY_ID = "DELETE FROM orders WHERE id = ? ";
 	private static final String SQL_DELETE_BY_CLIENT_ID = "DELETE FROM orders WHERE clientid = ? ";
 
-	private static final String SQL_UPDATE = "UPDATE orders SET clientid=?, typepresta=?, designation=?, nbdays=?, unitprice=?, state=?  WHERE id = ?";
+	private static final String SQL_UPDATE_BY_ID = "UPDATE orders SET clientid=?, typepresta=?, designation=?, nbdays=?, unitprice=?, state=?  WHERE id = ?";
 
 	private DaoFactory factory;
 
@@ -180,7 +180,7 @@ public class OrdersDaoImpl implements OrdersDao {
 		try {
 			con = factory.getConnection();
 
-			PreparedStatement pst = con.prepareStatement(SQL_UPDATE);
+			PreparedStatement pst = con.prepareStatement(SQL_UPDATE_BY_ID);
 
 			pst.setLong(1, order.getClient().getId());
 			pst.setString(2, order.getTypePresta());

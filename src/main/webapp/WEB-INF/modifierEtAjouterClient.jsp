@@ -7,7 +7,7 @@
 <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 <head>
 <meta charset="UTF-8">
-<title>Title</title>
+<title>${addOrUpdate} un client</title>
 </head>
 <body>
 

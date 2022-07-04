@@ -16,7 +16,7 @@ public class ClientDaoImpl implements ClientDao {
 	private static final String SQL_SELECT = "SELECT * FROM client ORDER BY id";
 	private static final String SQL_SELECT_BY_ID = "SELECT * FROM client WHERE id = ?";
 	private static final String SQL_DELETE_BY_ID = "DELETE FROM client WHERE id = ? ";
-	private static final String SQL_UPDATE = "UPDATE client SET companyname=?,firstname=?, lastname=?, email=?, phone=?, address=?, zipCode=?, city=?, country=?, state=?";
+	private static final String SQL_UPDATE_BY_ID = "UPDATE client SET companyname=?,firstname=?, lastname=?, email=?, phone=?, address=?, zipCode=?, city=?, country=?, state=? WHERE id=?";
 
 	private DaoFactory factory;
 
@@ -136,7 +136,7 @@ public class ClientDaoImpl implements ClientDao {
 		try {
 			con = factory.getConnection();
 
-			PreparedStatement pst = con.prepareStatement(SQL_UPDATE);
+			PreparedStatement pst = con.prepareStatement(SQL_UPDATE_BY_ID);
 
 			pst.setString(1, client.getCompanyName());
 			pst.setString(2, client.getFirstName());
@@ -148,6 +148,7 @@ public class ClientDaoImpl implements ClientDao {
 			pst.setString(8, client.getCity());
 			pst.setString(9, client.getCountry());
 			pst.setInt(10, client.getState());
+			pst.setLong(11, client.getId());
 
 			int statut = pst.executeUpdate();
 
