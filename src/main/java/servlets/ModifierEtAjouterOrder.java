@@ -20,14 +20,14 @@ import model.Orders;
  * Servlet implementation class ModifierEtAjouterCommande
  */
 @WebServlet("/modifierEtAjouterOrder")
-public class ModifierEtAjouterCommande extends HttpServlet {
+public class ModifierEtAjouterOrder extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	private ClientDao clientDao;
 	private OrdersDao ordersDao;
 
 
-    public ModifierEtAjouterCommande() {
+    public ModifierEtAjouterOrder() {
         super();
 
 		clientDao = DaoFactory.getInstance().getClientDao();
@@ -120,7 +120,7 @@ public class ModifierEtAjouterCommande extends HttpServlet {
 		
 		
 		
-		if (request.getParameter("id") == null) {
+		if (request.getParameter("id") == null || request.getParameter("id").equals("")) {
 			try {
 				client = clientDao.trouver(clientId);
 				Orders orderToAdd = new Orders();
