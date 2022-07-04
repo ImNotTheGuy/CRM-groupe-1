@@ -26,7 +26,7 @@
 	<h1>Liste des commandes</h1>
 
 
-<a href="<c:url value="/ajouterOrder" />"><button>Ajouter une commande</button></a>
+<a href="<c:url value="/modifierEtAjouterClient" />"><button>Ajouter une commande</button></a>
 
 	<c:choose>
 		<c:when test="${empty Orders }">
@@ -76,7 +76,7 @@
 						<td><a
 							href="<c:url value="/detailsOrder"><c:param name="id" value="${ orders.id }" /></c:url>">Voir</a>
 							| <a
-							href="<c:url value="/modifierOrder"><c:param name="id" value="${ orders.id }" /></c:url>">Modifier</a>
+							href="<c:url value="/modifierEtAjouterClient"><c:param name="id" value="${ orders.id }" /></c:url>">Modifier</a>
 							| <a
 							href="<c:url value="/supprimerOrder"><c:param name="id" value="${ orders.id }" /></c:url>">Supprimer</a>
 						</td>
