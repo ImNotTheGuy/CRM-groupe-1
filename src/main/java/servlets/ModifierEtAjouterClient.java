@@ -42,7 +42,6 @@ public class ModifierEtAjouterClient extends HttpServlet {
 			return;
 		}
 			
-		
 		try {
 			Client client = clientDao.trouver(id);
 			System.out.println(client);
@@ -52,8 +51,6 @@ public class ModifierEtAjouterClient extends HttpServlet {
 			System.out.println("Error retrieving id" + id);
 			e.printStackTrace();
 		}
-		
-		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/modifierEtAjouterClient.jsp").forward(request, response);
 	}
 
@@ -89,7 +86,6 @@ public class ModifierEtAjouterClient extends HttpServlet {
 			clientToModify.setCountry(country);
 			clientToModify.setState(state);
 			
-
 			System.out.println("modified to: " + clientToModify);
 			
 		} catch (DaoException e) {
