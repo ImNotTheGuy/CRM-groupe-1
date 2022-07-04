@@ -19,15 +19,13 @@ public class DetailsClient extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	private ClientDao clientDao;
-	private OrdersDao ordersDao;
-       
+	private OrdersDao ordersDao;  
     
     public DetailsClient() {
         super();
         
         clientDao = DaoFactory.getInstance().getClientDao();
         ordersDao = DaoFactory.getInstance().getOrdersDao();
-
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -41,7 +39,5 @@ public class DetailsClient extends HttpServlet {
 		}
 		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/detailsClient.jsp").forward(request, response);
-	
 	}
-
 }
