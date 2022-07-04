@@ -11,7 +11,7 @@
 </head>
 <body>
 <c:import url="/WEB-INF/menu.jsp" />
-
+<h2> LA LISTE DES CLIENTS</h2>
 <div>
 <c:choose>
 	
@@ -43,7 +43,8 @@
 					</tr>
 					
 			</c:forEach>
-			</table>	</c:otherwise>
+			</table>	
+			</c:otherwise>
 </c:choose>
 </div>
 </body>
