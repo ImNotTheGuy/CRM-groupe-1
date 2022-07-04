@@ -35,16 +35,19 @@ public class Client {
 
     public Client(
             long id,
+            String companyName,
             String firstName,
             String lastName,
             String email,
             String phone,
             String address,
             String zipCode,
+            String city,
             String country
     ) {
 
         this.id = id;
+        this.companyName = companyName;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -52,6 +55,7 @@ public class Client {
         this.address = address;
         this.zipCode = zipCode;
         this.country = country;
+        this.city = city;
         this.state = 0;
 
     }
