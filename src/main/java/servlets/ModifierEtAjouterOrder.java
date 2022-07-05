@@ -1,6 +1,7 @@
 package servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import controls.Controls;
 import dao.ClientDao;
 import dao.DaoException;
 import dao.DaoFactory;
@@ -22,25 +24,26 @@ import model.Orders;
 @WebServlet("/modifierEtAjouterOrder")
 public class ModifierEtAjouterOrder extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+
 	private ClientDao clientDao;
 	private OrdersDao ordersDao;
 
-
-    public ModifierEtAjouterOrder() {
-        super();
+	public ModifierEtAjouterOrder() {
+		super();
 
 		clientDao = DaoFactory.getInstance().getClientDao();
 		ordersDao = DaoFactory.getInstance().getOrdersDao();
-    }
+	}
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
 		String modify = request.getParameter("id");
-		
+
 		if (modify == null) {
 
 			try {
@@ -60,7 +63,8 @@ public class ModifierEtAjouterOrder extends HttpServlet {
 				e.printStackTrace();
 			}
 			request.setAttribute("addOrUpdate", "Ajouter");
-			this.getServletContext().getRequestDispatcher("/WEB-INF/modifierEtAjouterOrder.jsp").forward(request, response);
+			this.getServletContext().getRequestDispatcher("/WEB-INF/modifierEtAjouterOrder.jsp").forward(request,
+					response);
 			return;
 		}
 
@@ -79,10 +83,11 @@ public class ModifierEtAjouterOrder extends HttpServlet {
 				e.printStackTrace();
 			}
 			request.setAttribute("addOrUpdate", "Ajouter");
-			this.getServletContext().getRequestDispatcher("/WEB-INF/modifierEtAjouterOrder.jsp").forward(request, response);
+			this.getServletContext().getRequestDispatcher("/WEB-INF/modifierEtAjouterOrder.jsp").forward(request,
+					response);
 			return;
 		}
-			
+
 		try {
 			Orders order = ordersDao.trouver(id);
 			List<Client> listeClients = clientDao.lister();
@@ -90,38 +95,53 @@ public class ModifierEtAjouterOrder extends HttpServlet {
 			request.setAttribute("addOrUpdate", "Modifier");
 			request.setAttribute("orders", order);
 			request.setAttribute("listeClients", listeClients);
-			
+
 		} catch (DaoException e) {
 			System.out.println("Error retrieving id" + id);
 			e.printStackTrace();
 		}
-		
+
 		this.getServletContext().getRequestDispatcher("/WEB-INF/modifierEtAjouterOrder.jsp").forward(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		
-		//TODO: Controls
-		
-		long clientId = Long.parseLong(request.getParameter("clientId"));
-		System.out.println("id: " + request.getParameter("id"));
-		System.out.println("Client id: " + clientId);
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+
+		Controls controls = new Controls();
 		Client client;
+		
+		controls.checkRestriction("typePresta", request.getParameter("typePresta"));
+		controls.checkRestriction("designation", request.getParameter("designation"));
+		controls.checkRestriction("nbDays", request.getParameter("nbDays"));
+		controls.checkRestriction("unitPrice", request.getParameter("unitPrice"));
+		controls.checkRestriction("orderState", request.getParameter("state"));
 
-		String typePresta = request.getParameter("typePresta");
-		String designation = request.getParameter("designation");
-		int nbDays = Integer.parseInt(request.getParameter("nbDays"));
-		float unitPrice = Float.parseFloat(request.getParameter("unitPrice"));
-		int state = Integer.parseInt(request.getParameter("state"));
-		
-		
-		
+		List<String> errorMessages = controls.getErrorMessages();
+
+		long clientId = Long.parseLong(request.getParameter("clientId"));
+
 		if (request.getParameter("id") == null || request.getParameter("id").equals("")) {
+			
+			if (errorMessages.size() > 0) {
+
+				System.out.println(errorMessages.toString());
+				request.setAttribute("errorTitle", "ajout commande");
+				request.setAttribute("errorMessages", errorMessages);
+				request.setAttribute("redirectURL", "/listeOrders");
+				this.getServletContext().getRequestDispatcher("/WEB-INF/errorMessages.jsp").forward(request, response);
+				return;
+			}
+			
+			String typePresta = request.getParameter("typePresta");
+			String designation = request.getParameter("designation");
+			int nbDays = Integer.parseInt(request.getParameter("nbDays"));
+			float unitPrice = Float.parseFloat(request.getParameter("unitPrice"));
+			int state = Integer.parseInt(request.getParameter("state"));
+			
 			try {
+				
 				client = clientDao.trouver(clientId);
 				Orders orderToAdd = new Orders();
 				orderToAdd.setClient(client);
@@ -130,8 +150,7 @@ public class ModifierEtAjouterOrder extends HttpServlet {
 				orderToAdd.setNbDays(nbDays);
 				orderToAdd.setUnitPrice(unitPrice);
 				orderToAdd.setState(state);
-				
-				System.out.println("Commande à ajouter: " + orderToAdd);
+
 				ordersDao.creer(orderToAdd);
 			} catch (DaoException e) {
 
@@ -139,12 +158,27 @@ public class ModifierEtAjouterOrder extends HttpServlet {
 			}
 		} else {
 			
+			if (errorMessages.size() > 0) {
+
+				System.out.println(errorMessages.toString());
+				request.setAttribute("errorTitle", "modification commande");
+				request.setAttribute("errorMessages", errorMessages);
+				request.setAttribute("redirectURL", "/listeOrders");
+				this.getServletContext().getRequestDispatcher("/WEB-INF/errorMessages.jsp").forward(request, response);
+				return;
+			}
+			
+			String typePresta = request.getParameter("typePresta");
+			String designation = request.getParameter("designation");
+			int nbDays = Integer.parseInt(request.getParameter("nbDays"));
+			float unitPrice = Float.parseFloat(request.getParameter("unitPrice"));
+			int state = Integer.parseInt(request.getParameter("state"));
+
 			try {
-				
+
 				client = clientDao.trouver(clientId);
 				long id = Long.parseLong(request.getParameter("id"));
 				Orders orderToModify = ordersDao.trouver(id);
-				System.out.println("Commande à modifier: " + orderToModify);
 				orderToModify.setClient(client);
 				orderToModify.setTypePresta(typePresta);
 				orderToModify.setDesignation(designation);
@@ -157,7 +191,6 @@ public class ModifierEtAjouterOrder extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
 
 		}
 

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
@@ -11,7 +11,7 @@
 </head>
 <body>
 <c:import url="/WEB-INF/menu.jsp" />
-<h2>Liste des commandes</h2>
+<h2 class="titre">Liste des commandes</h2>
 	<c:choose>
 		<c:when test="${empty Orders}">
 		<p>Aucune commande</p>
@@ -20,7 +20,7 @@
 		<table>
 			<thead>
 				<tr>
-					<th>Id Commande</th>
+					<th>Numero de commande</th>
 					<th>Type de prestation</th>
 					<th>Designation</th>
 					<th>Action</th>
@@ -35,7 +35,7 @@
 						<td>
 							<a href="<c:url value="/detailsOrder"><c:param name="id" value="${ orders.id }" /></c:url>">Voir</a>
 							&ensp;
-							<a href="<c:url value="/modifierEtAjouterClient"><c:param name="id" value="${ orders.id }" /></c:url>">Modifier</a>
+							<a href="<c:url value="/modifierEtAjouterOrder"><c:param name="id" value="${ orders.id }" /></c:url>">Modifier</a>
 							&ensp;
 							<a href="<c:url value="/supprimerOrder"><c:param name="id" value="${ orders.id }" /></c:url>">Supprimer</a>
 						</td>

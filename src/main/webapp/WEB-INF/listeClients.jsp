@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
     
 <!DOCTYPE html>
@@ -11,11 +11,11 @@
 </head>
 <body>
 <c:import url="/WEB-INF/menu.jsp" />
-<h2>Liste des clients</h2>
+<h2 class="titre">Liste des clients</h2>
 <div>
 <c:choose>
 		<c:when test="${empty listeClients}">
-		<p> Aucun clients  </p>
+		<p> Aucun client </p>
 		</c:when>
 		<c:otherwise>
 		<table >
