@@ -123,7 +123,7 @@ public class Controls {
                 return;
             }
         } catch (NumberFormatException nfExc) {
-            errorMessage("Unable to parse a number for following value: " + parameter + "!");
+            errorMessage("Unable to parse a number for " + name + " ! You entered: " + parameter + "!");
             return;
         }
     }
@@ -154,7 +154,7 @@ public class Controls {
                 errorMessage(name + "must be less than 360 days ! You entered: " + paramInt);
             }
         } catch (NumberFormatException nfExc) {
-            errorMessage("Unable to parse a number for following value: " + parameter + "!");
+            errorMessage("Unable to parse a number for " + name + " ! You entered: " + parameter + "!");
             return;
         }
     }
@@ -177,7 +177,7 @@ public class Controls {
                 errorMessage(name + " must be less than 1 million ! You entered: " + paramFloat);
             }
         } catch (NumberFormatException nfExc) {
-            errorMessage("Unable to parse a number for following value: " + parameter + "!");
+            errorMessage("Unable to parse a number for " + name + " ! You entered: " + parameter + "!");
             return;
         }
     }
