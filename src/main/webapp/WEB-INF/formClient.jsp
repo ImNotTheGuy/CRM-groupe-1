@@ -3,10 +3,12 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<link rel="stylesheet" type="text/css" href="inc/style.css">
+
+<fieldset>
 <form method="post"
 	action="<c:url value = "/modifierEtAjouterClient">
-	<c:param name="id" value="${client.id}"/>
+	<c:if test="${addOrUpdate} == 'Modifier'">
+	<c:param name="id" value="${client.id}"/></c:if>
 			</c:url>">
 <fieldset>
 <legend>${addOrUpdate} un client</legend>
