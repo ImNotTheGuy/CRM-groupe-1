@@ -16,12 +16,11 @@
 
 
 <img src="https://c.tenor.com/8AqUPOC5GMgAAAAj/parrot-party.gif"/>
-
-<h1>Erreur ${errorTitle}</h1>
+<h1>L'opération a échoué: ${errorTitle}</h1>
 
 
 <h3>
-Erreur pour ${errorTitle}. Le ou les conditions suivantes n'ont pas été respectées:
+Le ou les conditions suivantes n'ont pas été respectées:
 
 <ul>
 <c:forEach items="${errorMessages}" var="error">

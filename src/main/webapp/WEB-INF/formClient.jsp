@@ -11,6 +11,7 @@
 	<c:param name="id" value="${client.id}"/></c:if>
 			</c:url>">
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 	<fieldset>
 		<legend>${addOrUpdate} un Client</legend>
@@ -37,6 +38,8 @@
 
 
 =======
+=======
+>>>>>>> 561d5a8b0d4c49311b62450a738b2d680ce3a669
 <fieldset>
 <legend>${addOrUpdate} un client</legend>
 
@@ -57,11 +60,15 @@
 		
 		<label for="address">Adresse</label> 
 		<input type="text" name="address" id="address" value="<c:out value="${client.address}"></c:out>"> <br />
+<<<<<<< HEAD
 >>>>>>> 92e3098f168e61057401dadc1ab14413a3cac4f0
+=======
+>>>>>>> 561d5a8b0d4c49311b62450a738b2d680ce3a669
 
 		<label for="zipCode">Code postal</label> <input type="text" name="zipCode"
 			id="zipCode" value="<c:out value="${client.zipCode}"></c:out>"> <br />
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 		<label for="city">City</label> <input type="text" name="city"
@@ -78,6 +85,8 @@
 
 </fieldset>
 =======
+=======
+>>>>>>> 561d5a8b0d4c49311b62450a738b2d680ce3a669
 		<label for="city">Ville</label> 
 		<input type="text" name="city" id="city" value="<c:out value="${client.city}"></c:out>"> <br /> 
 		
@@ -89,4 +98,7 @@
 </fieldset>
 <input class="bouton" type="submit" value="Valider" /> <input class="bouton" type="reset" value="Remettre à zéro" />	
 </form>
+<<<<<<< HEAD
 >>>>>>> 92e3098f168e61057401dadc1ab14413a3cac4f0
+=======
+>>>>>>> 561d5a8b0d4c49311b62450a738b2d680ce3a669

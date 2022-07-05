@@ -30,8 +30,10 @@ public class ModifierEtAjouterClient extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		// utiliser pour choisir entre ajouter et modifier
 		String modify = request.getParameter("id");
 
+		// si le champ est null alors rediriger vers ajout
 		if (modify == null) {
 			System.out.println("No id was given, sending to add Client form.");
 			request.setAttribute("addOrUpdate", "Ajouter");
@@ -41,6 +43,7 @@ public class ModifierEtAjouterClient extends HttpServlet {
 		}
 
 		long id;
+		// si l'id spécifié n'est pas un nombre alors rediriger vers ajout
 		try {
 			id = Long.parseLong(modify);
 		} catch (NumberFormatException nfExc) {
@@ -51,6 +54,8 @@ public class ModifierEtAjouterClient extends HttpServlet {
 			return;
 		}
 
+		// si on arrive jusqu'ici on est dans la partie modifier
+		// trouver le client pour pré-remplir les champs dans le formulaire
 		try {
 			Client client = clientDao.trouver(id);
 			System.out.println(client);
@@ -65,36 +70,46 @@ public class ModifierEtAjouterClient extends HttpServlet {
 				response);
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		// initialiser les contrôles
 		Controls controls = new Controls();
-		
-		controls.checkRestriction("companyName",request.getParameter("companyName"));
-		controls.checkRestriction("firstName",request.getParameter("firstName"));
-		controls.checkRestriction("lastName",request.getParameter("lastName"));
-		controls.checkRestriction("email",request.getParameter("email"));
-		controls.checkRestriction("phone",request.getParameter("phone"));
-		controls.checkRestriction("address",request.getParameter("address"));
-		controls.checkRestriction("zipCode",request.getParameter("zipCode"));
-		controls.checkRestriction("city",request.getParameter("city"));
-		controls.checkRestriction("country",request.getParameter("country"));
-		controls.checkRestriction("clientState",request.getParameter("state"));
-		
+
+		// pour chaque parametre, vérifier que les restrictions SQL sont bien respectées
+		controls.checkRestriction("companyName", request.getParameter("companyName"));
+		controls.checkRestriction("firstName", request.getParameter("firstName"));
+		controls.checkRestriction("lastName", request.getParameter("lastName"));
+		controls.checkRestriction("email", request.getParameter("email"));
+		controls.checkRestriction("phone", request.getParameter("phone"));
+		controls.checkRestriction("address", request.getParameter("address"));
+		controls.checkRestriction("zipCode", request.getParameter("zipCode"));
+		controls.checkRestriction("city", request.getParameter("city"));
+		controls.checkRestriction("country", request.getParameter("country"));
+		controls.checkRestriction("clientState", request.getParameter("state"));
+
+		// obtenir la liste des erreurs
 		List<String> errorMessages = controls.getErrorMessages();
-		
+
+		// dans le cas où l'id fourni est null, on est dans la configuration ajouter
 		if (request.getParameter("id") == null || request.getParameter("id").isEmpty()) {
-			
+
+			// si il y a eu une erreur, on redirige vers la page erreur en expliquant
+			// pourquoi
+
 			if (errorMessages.size() > 0) {
 
 				System.out.println(errorMessages.toString());
-				request.setAttribute("errorTitle", "ajouter client");
+				request.setAttribute("errorTitle", "ajout client");
 				request.setAttribute("errorMessages", errorMessages);
 				request.setAttribute("redirectURL", "/listeClients");
 				this.getServletContext().getRequestDispatcher("/WEB-INF/errorMessages.jsp").forward(request, response);
 				return;
 			}
-			
-			int state; // client state can be null and has 0 as default
+
+			// si
+
+			int state; // client state peut-etre null et est par défaut à 0
 			String companyName = request.getParameter("companyName");
 			String firstName = request.getParameter("firstName");
 			String lastName = request.getParameter("lastName");
@@ -104,15 +119,17 @@ public class ModifierEtAjouterClient extends HttpServlet {
 			String zipCode = request.getParameter("zipCode");
 			String city = request.getParameter("city");
 			String country = request.getParameter("country");
+
+			// check supplémentaire sur le state- si est null alors mettre à 0.
 			try {
-			state = Integer.parseInt(request.getParameter("state"));
+				state = Integer.parseInt(request.getParameter("state"));
 			} catch (NumberFormatException nfExc) {
 				System.out.println("No number passed for state, putting default value 0");
 				state = 0;
 			}
-			
-			try {
 
+			try {
+				// créer un nouveau client
 				Client clientToAdd = new Client();
 
 				clientToAdd.setCompanyName(companyName);
@@ -125,26 +142,28 @@ public class ModifierEtAjouterClient extends HttpServlet {
 				clientToAdd.setCity(city);
 				clientToAdd.setCountry(country);
 				clientToAdd.setState(state);
-				
+
 				System.out.println("Client à ajouter: " + clientToAdd);
 				clientDao.creer(clientToAdd);
 			} catch (DaoException e) {
-				
+
 				e.printStackTrace();
 			}
+			// configuration modifier
 		} else {
-			
+
+			// check pour erreurs comme au-dessus
 			if (errorMessages.size() > 0) {
 
 				System.out.println(errorMessages.toString());
-				request.setAttribute("errorTitle", "modifier client");
+				request.setAttribute("errorTitle", "modification client");
 				request.setAttribute("errorMessages", errorMessages);
 				request.setAttribute("redirectURL", "/listeClients");
 				this.getServletContext().getRequestDispatcher("/WEB-INF/errorMessages.jsp").forward(request, response);
 				return;
 			}
 			
-
+			int state;
 			String companyName = request.getParameter("companyName");
 			String firstName = request.getParameter("firstName");
 			String lastName = request.getParameter("lastName");
@@ -154,9 +173,18 @@ public class ModifierEtAjouterClient extends HttpServlet {
 			String zipCode = request.getParameter("zipCode");
 			String city = request.getParameter("city");
 			String country = request.getParameter("country");
-			int state = Integer.parseInt(request.getParameter("state"));
-			
+
+			// check supplémentaire sur le state- si est null alors mettre à 0.
 			try {
+				state = Integer.parseInt(request.getParameter("state"));
+			} catch (NumberFormatException nfExc) {
+				System.out.println("No number passed for state, putting default value 0");
+				state = 0;
+			}
+
+			try {
+				// modifier client actuel
+				
 				System.out.println("Line 102: " + request.getParameter("id"));
 				long clientId = Long.parseLong(request.getParameter("id"));
 				Client clientToModify = clientDao.trouver(clientId);
@@ -172,7 +200,7 @@ public class ModifierEtAjouterClient extends HttpServlet {
 				clientToModify.setCity(city);
 				clientToModify.setCountry(country);
 				clientToModify.setState(state);
-				
+
 				System.out.println("Client aveec modif: " + clientToModify);
 
 				clientDao.update(clientToModify);
