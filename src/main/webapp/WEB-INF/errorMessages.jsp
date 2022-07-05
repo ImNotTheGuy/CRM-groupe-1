@@ -14,7 +14,11 @@
 </head>
 <body class="error">
 
+
+<img src="https://c.tenor.com/8AqUPOC5GMgAAAAj/parrot-party.gif"/>
+
 <h1>Erreur ${errorTitle}</h1>
+
 
 <h3>
 Erreur pour ${errorTitle}. Le ou les conditions suivantes n'ont pas été respectées:
